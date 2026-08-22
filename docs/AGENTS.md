@@ -127,6 +127,10 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 
 ## Dokumentation
 
+[MUST] GitHub-Repository, Repository-Dokumentation, Code, Schema, Migrationen, Issues und Releases sind die führende Arbeits- und Dokumentationsquelle, sofern `PROJECT.md` nichts Spezifischeres definiert.
+
+[MUST_NOT] Externe Systeme wie Notion, Wikis, Chatverläufe, Projektmanagement-Tools oder sonstige Drittquellen dürfen nicht als führende Wahrheit verwendet werden, wenn sie nicht ausdrücklich in `PROJECT.md` oder der lokalen Repository-Dokumentation als Source of Truth definiert sind.
+
 [MUST] Dokumentation ist wahrheitsgemäß und gegen Code, Schema oder Produktverhalten geprüft.
 
 [SHOULD] Dokumentation ist auf Deutsch, knapp, konkret und wartbar.
