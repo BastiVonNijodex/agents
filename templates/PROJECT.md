@@ -2,7 +2,7 @@
 
 ## Zweck
 
-Beschreibe kurz, wofuer dieses Repository existiert.
+Beschreibe kurz, wofür dieses Repository existiert.
 
 ## Versionsbasis
 
@@ -12,7 +12,7 @@ Beschreibe relevante Versionen, Deployments, Umgebungen oder Release-Regeln.
 
 [MUST] Beschreibe verbindliche fachliche Regeln dieses Projekts.
 
-[MUST_NOT] Beschreibe fachliche Dinge, die Agenten nicht tun oder nicht erfinden duerfen.
+[MUST_NOT] Beschreibe fachliche Dinge, die Agenten nicht tun oder nicht erfinden dürfen.
 
 ## Technische Leitplanken
 
@@ -22,5 +22,5 @@ Beschreibe relevante Versionen, Deployments, Umgebungen oder Release-Regeln.
 
 ## Checks
 
-Beschreibe, welche Tests, Builds oder manuellen Pruefungen nach Aenderungen erforderlich sind.
+Beschreibe, welche Tests, Builds oder manuellen Prüfungen nach Änderungen erforderlich sind.
 

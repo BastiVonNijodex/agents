@@ -1,38 +1,48 @@
 # agents
 
-Zentrale Agenten-Anweisungen fuer Repositories von BastiVonNijodex.
+Zentrale Agenten-Anweisungen für Repositories von BastiVonNijodex.
 
-Die wichtigste Datei ist:
+Dieses Repository ist ein GitHub-Pages-Projekt. Die veröffentlichten Markdown-Dateien liegen unter `docs/` und werden direkt aus dem Branch `main` bereitgestellt.
 
-https://bastivonnijodex.github.io/agents/AGENTS.md
+## GitHub Pages
+
+Die zentrale Datei ist:
+
+[AGENTS.md](https://bastivonnijodex.github.io/agents/AGENTS.md)
+
+Weitere Einstiegspunkte:
+
+- [ROLES.md](https://bastivonnijodex.github.io/agents/roles/ROLES.md)
+- [SKILLS.md](https://bastivonnijodex.github.io/agents/skills/SKILLS.md)
+- [WORKFLOWS.md](https://bastivonnijodex.github.io/agents/workflows/WORKFLOWS.md)
+- [COMMANDS.md](https://bastivonnijodex.github.io/agents/COMMANDS.md)
+- [TECHNOLOGIES.md](https://bastivonnijodex.github.io/agents/TECHNOLOGIES.md)
 
 ## Verwendung in einem Repository
 
-Lege im Ziel-Repository eine kurze lokale `AGENTS.md` an:
+Lege im Ziel-Repository eine kurze lokale `AGENTS.md` an. Eine Vorlage liegt unter:
 
-```md
-# AGENTS.md
+`templates/AGENTS.md`
 
-Die verbindlichen globalen Agentenregeln stehen unter:
+Optional kann das Ziel-Repository zusätzlich eine `PROJECT.md` mit projektspezifischen Leitplanken enthalten:
 
-https://bastivonnijodex.github.io/agents/AGENTS.md
+`templates/PROJECT.md`
 
-Zu Beginn jeder Aufgabe muss diese Datei gelesen und beachtet werden.
+## Struktur
 
-Wenn projektspezifische Regeln existieren, gelten zusaetzlich `PROJECT.md` und die lokale Repository-Dokumentation.
-```
-
-Optional kann das Repository eine `PROJECT.md` mit projektspezifischen Leitplanken enthalten.
-
-## Dateien
-
-- `AGENTS.md`: globale Agentenregeln
-- `templates/AGENTS.md`: kurzer Wrapper fuer andere Repositories
-- `templates/PROJECT.md`: Vorlage fuer projektspezifische Regeln
+| Pfad | Zweck |
+|---|---|
+| `AGENTS.md` | Lokaler Einstiegspunkt dieses Repositories. |
+| `PROJECT.md` | Projektbeschreibung und Pflege-Regeln für dieses Regel-Repository. |
+| `docs/AGENTS.md` | Veröffentlichte globale Agentenregeln. |
+| `docs/roles/ROLES.md` | Rollen-Lookup. |
+| `docs/skills/SKILLS.md` | Skill-Lookup. |
+| `docs/workflows/WORKFLOWS.md` | Workflow-Lookup. |
+| `templates/` | Kopiervorlagen für andere Repositories. |
 
 ## Pflege
 
-Aenderungen an `AGENTS.md` wirken auf alle Repositories, die auf diese Datei verweisen.
+Änderungen an veröffentlichten Regeln erfolgen direkt unter `docs/`.
 
-Deshalb sollten Aenderungen klein, nachvollziehbar und versioniert erfolgen.
+Änderungen sollten klein, nachvollziehbar und versioniert erfolgen, weil konsumierende Repositories auf die veröffentlichten URLs verweisen können.
 
