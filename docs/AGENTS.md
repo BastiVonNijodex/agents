@@ -103,6 +103,12 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 
 [MUST] Releases enthalten kurze, nutzerverständliche Release Notes.
 
+[MUST_IF] Wenn eine Umsetzung für eine Applikation testmäßig abgenommen oder als abgeschlossen gemeldet wird, muss der Agent prüfen, ob daraus Release Notes entstehen müssen.
+
+[MUST_IF] Eine abgenommene Applikationsänderung für Nutzer sichtbar, fachlich relevant oder bedienungsrelevant ist, muss sie in nutzerverständlichen Release Notes dokumentiert werden.
+
+[MUST_IF] Eine Applikation einen Nutzerbereich für neue Updates besitzt, muss der Agent die projektspezifische Ablage oder Einspeisung dieser Release Notes berücksichtigen.
+
 [MUST_IF] Wenn ein Release, Tag, Push oder Deployment vorbereitet wird, muss der Agent passende Tests, Builds oder Checks vor der extern wirksamen Handlung ausführen oder begründen, warum ein Check nicht möglich ist.
 
 [MUST_IF] Wenn ein Release, Tag, Push oder Deployment vorbereitet wird, muss der Agent vor Abschluss nennen, welche Änderungen enthalten sind, welche Checks gelaufen sind, welche Dokumentation aktualisiert wurde und welche Risiken oder offenen Punkte verbleiben.

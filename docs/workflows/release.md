@@ -22,6 +22,12 @@ Dieser Workflow beschreibt die globale Release-Disziplin für Agenten. Projektsp
 
 [MUST] Release Notes müssen kurz, nutzerverständlich und am tatsächlichen Änderungsumfang ausgerichtet sein.
 
+[MUST_IF] Eine getestete oder abgenommene Umsetzung betrifft eine Applikation und ist für Nutzer sichtbar, fachlich relevant oder bedienungsrelevant, muss der Agent Release Notes vorbereiten.
+
+[MUST_IF] Die Applikation einen Nutzerbereich für neue Updates, Release-Hinweise oder Onboarding-Neuigkeiten besitzt, muss der Agent die projektspezifische Ablage oder Einspeisung der Release Notes berücksichtigen.
+
+[MUST] Release Notes beschreiben den sichtbaren Nutzen oder die geänderte Bedienung, nicht nur interne Implementierungsdetails.
+
 [MUST] Relevante Dokumentation muss aktualisiert werden, wenn sich Verhalten, Setup, API, Schema, Deployment, Release-Prozess oder Agentenregeln ändern.
 
 [MUST] Vor Abschluss nennt der Agent enthaltene Änderungen, ausgeführte Checks, aktualisierte Dokumentation und verbleibende Risiken oder offene Punkte.
@@ -30,9 +36,10 @@ Dieser Workflow beschreibt die globale Release-Disziplin für Agenten. Projektsp
 
 [MUST_NOT] Projektspezifische Versions-, Build-, Migrations-, Backup- oder Deployment-Kommandos dürfen nicht global erfunden werden.
 
+[MUST_NOT] Der globale Workflow darf keinen konkreten App-internen Release-Note-Speicher erzwingen. Der Speicherort muss projektspezifisch definiert sein.
+
 [MUST] Solche Details müssen aus `PROJECT.md`, lokaler Dokumentation, bestehendem Code, Skripten oder einer direkten Nutzeranweisung stammen.
 
 ## Endergebnis
 
 [MUST] Ein Release-Workflow endet erst, wenn der freigegebene Scope abgeschlossen oder ein Blocker klar benannt ist.
-
