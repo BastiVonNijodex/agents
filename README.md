@@ -15,6 +15,7 @@ Weitere Einstiegspunkte:
 - [ROLES.md](https://bastivonnijodex.github.io/agents/roles/ROLES.md)
 - [SKILLS.md](https://bastivonnijodex.github.io/agents/skills/SKILLS.md)
 - [WORKFLOWS.md](https://bastivonnijodex.github.io/agents/workflows/WORKFLOWS.md)
+- [release.md](https://bastivonnijodex.github.io/agents/workflows/release.md)
 - [COMMANDS.md](https://bastivonnijodex.github.io/agents/COMMANDS.md)
 - [TECHNOLOGIES.md](https://bastivonnijodex.github.io/agents/TECHNOLOGIES.md)
 
@@ -38,6 +39,7 @@ Optional kann das Ziel-Repository zusätzlich eine `PROJECT.md` mit projektspezi
 | `docs/roles/ROLES.md` | Rollen-Lookup. |
 | `docs/skills/SKILLS.md` | Skill-Lookup. |
 | `docs/workflows/WORKFLOWS.md` | Workflow-Lookup. |
+| `docs/workflows/release.md` | Globale Release-Disziplin. |
 | `templates/` | Kopiervorlagen für andere Repositories. |
 
 ## Pflege
@@ -45,4 +47,3 @@ Optional kann das Ziel-Repository zusätzlich eine `PROJECT.md` mit projektspezi
 Änderungen an veröffentlichten Regeln erfolgen direkt unter `docs/`.
 
 Änderungen sollten klein, nachvollziehbar und versioniert erfolgen, weil konsumierende Repositories auf die veröffentlichten URLs verweisen können.
-

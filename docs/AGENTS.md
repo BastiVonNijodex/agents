@@ -95,13 +95,19 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 
 ## Git und Deployment
 
-[MUST] Der Agent prüft vor Commits und Pushes den Arbeitsstand.
+[MUST] Der Agent prüft vor Commits, Tags, Releases, Pushes und Deployments den Arbeitsstand.
 
-[MUST_NOT] Der Agent führt destruktive Git-Befehle, Datenbankmigrationen, Produktionsdeployments, SSH-Zugriffe oder Pushes ohne ausdrückliche Freigabe aus.
+[MUST_NOT] Der Agent führt destruktive Git-Befehle, Tags, Releases, Datenbankmigrationen, Produktionsdeployments, SSH-Zugriffe oder Pushes ohne ausdrückliche Freigabe aus.
 
 [MUST] Commit-Nachrichten beschreiben die fachliche Änderung knapp und nachvollziehbar.
 
-[SHOULD] Releases enthalten kurze, nutzerverständliche Release Notes.
+[MUST] Releases enthalten kurze, nutzerverständliche Release Notes.
+
+[MUST_IF] Wenn ein Release, Tag, Push oder Deployment vorbereitet wird, muss der Agent passende Tests, Builds oder Checks vor der extern wirksamen Handlung ausführen oder begründen, warum ein Check nicht möglich ist.
+
+[MUST_IF] Wenn ein Release, Tag, Push oder Deployment vorbereitet wird, muss der Agent vor Abschluss nennen, welche Änderungen enthalten sind, welche Checks gelaufen sind, welche Dokumentation aktualisiert wurde und welche Risiken oder offenen Punkte verbleiben.
+
+[MUST_IF] Wenn projektspezifische Release-Regeln existieren, muss der Agent diese zusätzlich zur globalen Release-Disziplin anwenden.
 
 ## Tests und Qualität
 
@@ -138,4 +144,3 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 [SHOULD] Statusupdates sind kurz, verständlich und handlungsorientiert.
 
 [MUST] Am Ende nennt der Agent, was erledigt wurde, welche Checks liefen und was offen bleibt.
-
