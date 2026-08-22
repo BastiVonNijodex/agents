@@ -40,4 +40,5 @@ Wichtige URLs:
 - https://bastivonnijodex.github.io/agents/roles/ROLES.md
 - https://bastivonnijodex.github.io/agents/skills/SKILLS.md
 - https://bastivonnijodex.github.io/agents/workflows/WORKFLOWS.md
+- https://bastivonnijodex.github.io/agents/workflows/new-application.md
 - https://bastivonnijodex.github.io/agents/workflows/release.md

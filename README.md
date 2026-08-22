@@ -15,6 +15,7 @@ Weitere Einstiegspunkte:
 - [ROLES.md](https://bastivonnijodex.github.io/agents/roles/ROLES.md)
 - [SKILLS.md](https://bastivonnijodex.github.io/agents/skills/SKILLS.md)
 - [WORKFLOWS.md](https://bastivonnijodex.github.io/agents/workflows/WORKFLOWS.md)
+- [new-application.md](https://bastivonnijodex.github.io/agents/workflows/new-application.md)
 - [release.md](https://bastivonnijodex.github.io/agents/workflows/release.md)
 - [COMMANDS.md](https://bastivonnijodex.github.io/agents/COMMANDS.md)
 - [TECHNOLOGIES.md](https://bastivonnijodex.github.io/agents/TECHNOLOGIES.md)
@@ -39,6 +40,7 @@ Optional kann das Ziel-Repository zusätzlich eine `PROJECT.md` mit projektspezi
 | `docs/roles/ROLES.md` | Rollen-Lookup. |
 | `docs/skills/SKILLS.md` | Skill-Lookup. |
 | `docs/workflows/WORKFLOWS.md` | Workflow-Lookup. |
+| `docs/workflows/new-application.md` | Mindeststandard für neue Applikationen. |
 | `docs/workflows/release.md` | Globale Release-Disziplin. |
 | `templates/` | Kopiervorlagen für andere Repositories. |
 

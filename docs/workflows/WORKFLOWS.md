@@ -15,6 +15,7 @@ Diese Datei ist die Lookup-Datei für wiederkehrende Workflows. Workflows kombin
 | Workflow | Verwenden, wenn | Ablauf |
 |---|---|---|
 | Änderung umsetzen | Code oder Doku geändert werden soll. | Kontext lesen, Änderung machen, passende Checks ausführen, Ergebnis zusammenfassen. |
+| Neue Applikation erstellen | Eine neue App, ein neues Tool, Dashboard, Portal, internes System oder Webprodukt erstellt oder initialisiert werden soll. | [new-application.md](https://bastivonnijodex.github.io/agents/workflows/new-application.md) anwenden. |
 | Review | eine Prüfung angefordert ist. | Befunde priorisieren, Risiken nennen, Tests oder fehlende Checks benennen. |
 | Release vorbereiten | Commit, Tag, Push, Release Notes oder Deployment vorbereitet werden soll. | [release.md](https://bastivonnijodex.github.io/agents/workflows/release.md) anwenden. |
 | Dokumentation aktualisieren | Regeln, Projektwissen oder Produktverhalten dokumentiert werden soll. | Quelle prüfen, passende Doku ändern, Links und Wahrheit gegen Stand abgleichen. |
