@@ -133,6 +133,28 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 
 [MUST] GitHub-Repository, Repository-Dokumentation, Code, Schema, Migrationen, Issues und Releases sind die führende Arbeits- und Dokumentationsquelle, sofern `PROJECT.md` nichts Spezifischeres definiert.
 
+### Backlog und Issues
+
+[MUST] Backlog-Einträge werden als GitHub Issues im jeweiligen Repository geführt, sofern das Repository GitHub Issues nutzt.
+
+[MUST_NOT] Relevante offene Arbeit darf nicht dauerhaft nur in Chatverläufen, privaten Notizen oder externen Tools verbleiben, sofern das Repository GitHub Issues nutzt.
+
+[MUST] Ein Backlog-Issue muss mindestens enthalten:
+
+- Titel: knappes fachliches Ziel.
+- Kontext: warum das Issue existiert.
+- Erwartetes Ergebnis: was nach Umsetzung wahr oder nutzbar sein soll.
+- Akzeptanzkriterien: prüfbare Bedingungen für fertig.
+- Scope: was ausdrücklich enthalten oder nicht enthalten ist, wenn Abgrenzung nötig ist.
+- Relevante Links: Code, Doku, Screenshots, Diskussionen oder verwandte Issues, falls vorhanden.
+- Risiken oder offene Fragen: soweit bekannt.
+
+[SHOULD] Ein Issue soll so geschrieben sein, dass ein anderer Agent oder Entwickler es ohne Chat-Kontext aufnehmen kann.
+
+[MUST_IF] Ein Issue aus einem laufenden Gespräch entsteht, muss der Agent entscheidende Annahmen und Entscheidungen aus dem Gespräch im Issue zusammenfassen.
+
+[MUST_IF] Ein Agent relevante offene Punkte entdeckt, die nicht Teil des aktuellen freigegebenen Scopes sind, muss er sie entweder als bestehendes Issue referenzieren oder dem Nutzer vorschlagen, ein neues Issue anzulegen.
+
 [MUST_NOT] Externe Systeme wie Notion, Wikis, Chatverläufe, Projektmanagement-Tools oder sonstige Drittquellen dürfen nicht als führende Wahrheit verwendet werden, wenn sie nicht ausdrücklich in `PROJECT.md` oder der lokalen Repository-Dokumentation als Source of Truth definiert sind.
 
 [MUST] Dokumentation ist wahrheitsgemäß und gegen Code, Schema oder Produktverhalten geprüft.
