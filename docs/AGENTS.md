@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Stand: 2026-08-22
+Stand: 2026-08-23
 
 Diese Datei definiert verbindliche Arbeitsregeln für KI- und Code-Agenten.
 
@@ -98,6 +98,10 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 [MUST] Der Agent prüft vor Commits, Tags, Releases, Pushes und Deployments den Arbeitsstand.
 
 [MUST_NOT] Der Agent führt destruktive Git-Befehle, Tags, Releases, Datenbankmigrationen, Produktionsdeployments, SSH-Zugriffe oder Pushes ohne ausdrückliche Freigabe aus.
+
+[MUST_IF] Wenn ein Produktionsdeploy oder eine produktionsnahe Übergabe vorbereitet wird und der Nutzer die Serverausführung selbst übernimmt oder der Agent keinen ausdrücklich freigegebenen SSH-Zugriff hat, muss der Agent einen kopierbaren Terminalblock für den Produktionsserver bereitstellen. Dieser Block muss die projektspezifisch belegten Schritte wie Arbeitsverzeichnis, Git-Pull oder Release-Tag-Checkout, Backup, gezielte Migrationen, Deploy-Befehl und Verifikationsbefehle enthalten, soweit sie für den aktuellen Release relevant sind.
+
+[MUST_NOT] Der Agent darf bei fehlendem oder nicht freigegebenem SSH-Zugriff nicht behaupten, ein Produktionsdeploy ausgeführt zu haben. Er muss stattdessen klar benennen, welche lokalen oder externen Vorbereitungsschritte erledigt sind und welche Serverbefehle der Nutzer noch ausführen muss.
 
 [MUST] Commit-Nachrichten beschreiben die fachliche Änderung knapp und nachvollziehbar.
 

@@ -16,6 +16,8 @@ Dieser Workflow beschreibt die globale Release-Disziplin für Agenten. Projektsp
 
 [MUST_NOT] Der Agent darf Tags, Releases, Pushes, produktionswirksame Deployments, Datenbankmigrationen, SSH-Zugriffe oder andere extern wirksame Schritte ohne ausdrückliche Freigabe nicht ausführen.
 
+[MUST_IF] Der Nutzer den Produktionsserver selbst bedient oder kein ausdrücklich freigegebener SSH-Zugriff für den Agenten besteht, muss der Agent die Übergabe als kopierbaren Terminalblock formulieren. Der Block muss auf dem konkreten Projektkontext beruhen und darf keine erfundenen Versions-, Backup-, Migrations- oder Deploy-Kommandos enthalten.
+
 [MUST] Der Agent führt die passenden Tests, Builds, Lints, Audits oder manuellen Prüfungen aus, bevor er eine Release-Freigabe als erledigt meldet.
 
 [MUST_IF] Ein erforderlicher Check nicht ausführbar ist, muss der Agent den Grund und das verbleibende Risiko nennen.
@@ -31,6 +33,8 @@ Dieser Workflow beschreibt die globale Release-Disziplin für Agenten. Projektsp
 [MUST] Relevante Dokumentation muss aktualisiert werden, wenn sich Verhalten, Setup, API, Schema, Deployment, Release-Prozess oder Agentenregeln ändern.
 
 [MUST] Vor Abschluss nennt der Agent enthaltene Änderungen, ausgeführte Checks, aktualisierte Dokumentation und verbleibende Risiken oder offene Punkte.
+
+[MUST_IF] Der Agent den Produktionsserver nicht selbst bedient hat, muss er vor Abschluss ausdrücklich sagen, dass der Produktionsdeploy noch nicht ausgeführt wurde und die Serverbefehle noch durch den Nutzer laufen müssen.
 
 ## Grenzen
 
