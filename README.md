@@ -13,8 +13,11 @@ Die zentrale Datei ist:
 Weitere Einstiegspunkte:
 
 - [ROLES.md](https://bastivonnijodex.github.io/agents/roles/ROLES.md)
+- [Product Owner](https://bastivonnijodex.github.io/agents/roles/product-owner.md)
 - [SKILLS.md](https://bastivonnijodex.github.io/agents/skills/SKILLS.md)
 - [WORKFLOWS.md](https://bastivonnijodex.github.io/agents/workflows/WORKFLOWS.md)
+- [Backlog Item erstellen und verfeinern](https://bastivonnijodex.github.io/agents/workflows/backlog-item.md)
+- [Produktkonzept erstellen und entscheiden](https://bastivonnijodex.github.io/agents/workflows/product-concept.md)
 - [new-application.md](https://bastivonnijodex.github.io/agents/workflows/new-application.md)
 - [release.md](https://bastivonnijodex.github.io/agents/workflows/release.md)
 - [COMMANDS.md](https://bastivonnijodex.github.io/agents/COMMANDS.md)
@@ -38,8 +41,11 @@ Optional kann das Ziel-Repository zusätzlich eine `PROJECT.md` mit projektspezi
 | `PROJECT.md` | Projektbeschreibung und Pflege-Regeln für dieses Regel-Repository. |
 | `docs/AGENTS.md` | Veröffentlichte globale Agentenregeln. |
 | `docs/roles/ROLES.md` | Rollen-Lookup. |
+| `docs/roles/product-owner.md` | Produktübergreifende Product-Owner-Verantwortung. |
 | `docs/skills/SKILLS.md` | Skill-Lookup. |
 | `docs/workflows/WORKFLOWS.md` | Workflow-Lookup. |
+| `docs/workflows/backlog-item.md` | Produktübergreifender Standard für Backlog Items. |
+| `docs/workflows/product-concept.md` | Produktübergreifender Lebenszyklus für Produktkonzepte. |
 | `docs/workflows/new-application.md` | Mindeststandard für neue Applikationen. |
 | `docs/workflows/release.md` | Globale Release-Disziplin. |
 | `templates/` | Kopiervorlagen für andere Repositories. |

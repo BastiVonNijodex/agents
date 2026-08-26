@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Stand: 2026-08-23
+Stand: 2026-08-26
 
 Diese Datei definiert verbindliche Arbeitsregeln für KI- und Code-Agenten.
 
@@ -133,23 +133,37 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 
 [MUST] GitHub-Repository, Repository-Dokumentation, Code, Schema, Migrationen, Issues und Releases sind die führende Arbeits- und Dokumentationsquelle, sofern `PROJECT.md` nichts Spezifischeres definiert.
 
+### Produktkonzepte
+
+[MUST_IF] Eine Produktidee als Konzept ausgearbeitet, geprüft, entschieden oder
+in Umsetzung überführt wird, muss der Agent den Workflow
+[Produktkonzept erstellen und entscheiden](https://bastivonnijodex.github.io/agents/workflows/product-concept.md)
+lesen und anwenden.
+
+[MUST] Konzepte müssen von umsetzungsreifen Backlog Items und von bereits
+implementierter Produktwahrheit unterscheidbar bleiben.
+
+[MUST_NOT] Ein angenommenes Konzept allein darf nicht als Nachweis für eine
+erfolgte Implementierung oder ein ausgeliefertes Produktverhalten gelten.
+
 ### Backlog und Issues
+
+[MUST_IF] Ein Backlog Item erstellt, verfeinert, geprüft oder abgeschlossen
+wird, muss der Agent den Workflow
+[Backlog Item erstellen und verfeinern](https://bastivonnijodex.github.io/agents/workflows/backlog-item.md)
+lesen und anwenden.
 
 [MUST] Backlog-Einträge werden als GitHub Issues im jeweiligen Repository geführt, sofern das Repository GitHub Issues nutzt.
 
 [MUST_NOT] Relevante offene Arbeit darf nicht dauerhaft nur in Chatverläufen, privaten Notizen oder externen Tools verbleiben, sofern das Repository GitHub Issues nutzt.
 
-[MUST] Ein Backlog-Issue muss mindestens enthalten:
+[MUST] Ein Backlog-Issue muss Ziel, Kontext und Nutzen, Anforderungen,
+prüfbare Akzeptanzkriterien, Scope, Abhängigkeiten und Auswirkungen, Checks,
+relevante Quellen sowie bekannte Risiken und offene Fragen im erforderlichen
+Umfang enthalten.
 
-- Titel: knappes fachliches Ziel.
-- Kontext: warum das Issue existiert.
-- Erwartetes Ergebnis: was nach Umsetzung wahr oder nutzbar sein soll.
-- Akzeptanzkriterien: prüfbare Bedingungen für fertig.
-- Scope: was ausdrücklich enthalten oder nicht enthalten ist, wenn Abgrenzung nötig ist.
-- Relevante Links: Code, Doku, Screenshots, Diskussionen oder verwandte Issues, falls vorhanden.
-- Risiken oder offene Fragen: soweit bekannt.
-
-[SHOULD] Ein Issue soll so geschrieben sein, dass ein anderer Agent oder Entwickler es ohne Chat-Kontext aufnehmen kann.
+[MUST] Ein Issue muss so geschrieben sein, dass ein anderer Agent oder
+Entwickler es ohne den ursprünglichen Chat aufnehmen kann.
 
 [MUST_IF] Ein Issue aus einem laufenden Gespräch entsteht, muss der Agent entscheidende Annahmen und Entscheidungen aus dem Gespräch im Issue zusammenfassen.
 
