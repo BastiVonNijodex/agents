@@ -20,6 +20,16 @@ Dieser Workflow beschreibt die globale Release-Disziplin für Agenten. Projektsp
 
 [MUST] Der Agent führt die passenden Tests, Builds, Lints, Audits oder manuellen Prüfungen aus, bevor er eine Release-Freigabe als erledigt meldet.
 
+[MUST_IF] Ein Release Daten, Schema, öffentliche Schnittstellen,
+Berechtigungen oder produktionsrelevante Konfiguration verändert, muss der Agent
+Kompatibilität, Migration, Backup, Verhalten bei Teilfehlern, Rollback und
+Wiederherstellung vor der extern wirksamen Handlung prüfen.
+
+[MUST_IF] Ein Deployment vorbereitet wird, müssen die projektspezifisch
+belegten Health Checks, Smoke Tests, Monitoring- oder Log-Prüfungen für die
+Verifikation nach dem Deployment benannt und soweit autorisiert ausgeführt
+werden.
+
 [MUST_IF] Ein erforderlicher Check nicht ausführbar ist, muss der Agent den Grund und das verbleibende Risiko nennen.
 
 [MUST] Release Notes müssen kurz, nutzerverständlich und am tatsächlichen Änderungsumfang ausgerichtet sein.
@@ -33,6 +43,10 @@ Dieser Workflow beschreibt die globale Release-Disziplin für Agenten. Projektsp
 [MUST] Relevante Dokumentation muss aktualisiert werden, wenn sich Verhalten, Setup, API, Schema, Deployment, Release-Prozess oder Agentenregeln ändern.
 
 [MUST] Vor Abschluss nennt der Agent enthaltene Änderungen, ausgeführte Checks, aktualisierte Dokumentation und verbleibende Risiken oder offene Punkte.
+
+[MUST_IF] Migration, Backup, Wiederherstellung oder Rollback für den Release
+relevant sind, muss der Abschluss zusätzlich deren geprüften Stand und noch
+erforderliche manuelle Schritte nennen.
 
 [MUST_IF] Der Agent den Produktionsserver nicht selbst bedient hat, muss er vor Abschluss ausdrücklich sagen, dass der Produktionsdeploy noch nicht ausgeführt wurde und die Serverbefehle noch durch den Nutzer laufen müssen.
 

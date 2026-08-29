@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Stand: 2026-08-26
+Stand: 2026-08-29
 
 Diese Datei definiert verbindliche Arbeitsregeln für KI- und Code-Agenten.
 
@@ -91,7 +91,39 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 
 [MUST_NOT] Der Agent erfindet keine Felder, Status, Rollen, API-Konventionen oder Prozesse, wenn sie nicht im Code, Schema, in Migrationen oder in der Projektdokumentation belegt sind.
 
+[ALLOW_IF] Der Agent darf bei reversiblen und risikoarmen Entscheidungen eine
+plausible Annahme treffen, wenn sie für den Fortschritt erforderlich ist und als
+Annahme dokumentiert wird.
+
+[MUST_IF] Eine offene Entscheidung Produktumfang, Architektur, Daten,
+Berechtigungen, externe Kosten oder Betrieb wesentlich und schwer rückbaubar
+beeinflusst, muss der Agent die Entscheidung und ihre Auswirkungen klären, statt
+sie stillschweigend zu treffen.
+
 [MUST] Nach relevanten Code-, Schema-, API-, Deployment- oder Produktverhaltensänderungen aktualisiert der Agent die passende Dokumentation.
+
+## Applikationsentwicklung
+
+[MUST_IF] Eine neue App, ein neues Tool, Dashboard, Portal, internes System
+oder Webprodukt erstellt oder ein Prototyp in eine dauerhaft weiterentwickelbare
+Applikation überführt wird, muss der Agent den Workflow
+[Neue Applikation erstellen](https://bastivonnijodex.github.io/agents/workflows/new-application.md)
+lesen und anwenden.
+
+## Sicherheit und Datenschutz
+
+[MUST_NOT] Der Agent darf Secrets, Zugangsdaten, private Schlüssel oder andere
+sensible Werte in Code, Repository, Logs, Screenshots, Testdaten oder
+Dokumentation einbringen.
+
+[MUST_IF] Eine Änderung Authentifizierung, Autorisierung, personenbezogene
+Daten, Uploads, externe Eingaben, AI-Verarbeitung, Webhooks oder Drittanbieter
+betrifft, muss der Agent die relevanten Sicherheits- und Datenschutzfolgen im
+erforderlichen Umfang prüfen und dokumentieren.
+
+[MUST] Berechtigungen und Zugriffe werden nach dem Prinzip der geringsten
+erforderlichen Rechte gestaltet, soweit der aktuelle Task sie verändert oder
+neu definiert.
 
 ## Git und Deployment
 
@@ -128,6 +160,14 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 [SHOULD] Bei Frontend-Änderungen prüft der Agent Darstellung und Bedienbarkeit in den relevanten Ansichten.
 
 [SHOULD] Bei Backend-, API- oder Schema-Änderungen prüft der Agent die betroffenen Schnittstellen oder Datenflüsse.
+
+[MUST_IF] Ein Fehler behoben wird, muss ein geeigneter Regressionstest ergänzt
+oder begründet werden, warum kein automatisierter Regressionstest sinnvoll oder
+möglich ist.
+
+[SHOULD] Bei nutzerseitigen Oberflächen prüft der Agent neben Darstellung und
+Bedienbarkeit auch die für den Scope relevanten Anforderungen an
+Barrierefreiheit, Tastaturbedienung, Fokusführung und verständliche Zustände.
 
 ## Dokumentation
 

@@ -29,7 +29,10 @@ Lege im Ziel-Repository eine kurze lokale `AGENTS.md` an. Eine Vorlage liegt unt
 
 `templates/AGENTS.md`
 
-Optional kann das Ziel-Repository zusätzlich eine `PROJECT.md` mit projektspezifischen Leitplanken enthalten:
+Ein Ziel-Repository kann zusätzlich eine `PROJECT.md` mit projektspezifischen
+Leitplanken enthalten. Für neue Applikationen ist sie nach dem Workflow
+[Neue Applikation erstellen](https://bastivonnijodex.github.io/agents/workflows/new-application.md)
+verpflichtend:
 
 `templates/PROJECT.md`
 
