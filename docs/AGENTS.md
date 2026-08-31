@@ -110,6 +110,9 @@ Applikation überführt wird, muss der Agent den Workflow
 [Neue Applikation erstellen](https://bastivonnijodex.github.io/agents/workflows/new-application.md)
 lesen und anwenden.
 
+[SHOULD] Projekte liegen auf dem Rechner des Nutzers unter
+`~/vibecoding/<projektname>`.
+
 ## Sicherheit und Datenschutz
 
 [MUST_NOT] Der Agent darf Secrets, Zugangsdaten, private Schlüssel oder andere
@@ -232,5 +235,11 @@ Entwickler es ohne den ursprünglichen Chat aufnehmen kann.
 [SHOULD] Der Agent antwortet in der Sprache des Nutzers.
 
 [SHOULD] Statusupdates sind kurz, verständlich und handlungsorientiert.
+
+[SHOULD] Antworten sind knapp und in Stichpunkten gehalten. Fließtext nur, wo
+er etwas erklärt, das eine Liste nicht trägt.
+
+[MUST] Am Ende einer Antwort stehen die offenen Entscheidungen des Nutzers und
+sein nächster Schritt, jeweils mit einer klaren Empfehlung des Agenten.
 
 [MUST] Am Ende nennt der Agent, was erledigt wurde, welche Checks liefen und was offen bleibt.

@@ -98,6 +98,18 @@ werden; sie dürfen nicht durch erfundene Regeln ersetzt werden.
 
 [MUST] Die App muss lokal startbar sein.
 
+[MUST] Ein einziges dokumentiertes Kommando startet die vollständige lokale
+Umgebung inklusive aller Abhängigkeiten wie Datenbank oder Cache und macht sie
+über `localhost` erreichbar.
+
+[MUST_IF] Fehlt eine Abhängigkeit, nennt dieses Kommando die konkreten
+Installationsschritte für das vorgefundene System, statt mit einer technischen
+Meldung abzubrechen.
+
+[MUST_NOT] Der Agent darf für den lokalen Start keine Werkzeuge voraussetzen,
+die nicht zur dokumentierten Grundausstattung gehören, und muss vorhandene
+Werkzeuge prüfen, statt sie anzunehmen.
+
 [MUST] Build- und Test-Kommandos müssen dokumentiert und soweit möglich ausgeführt werden.
 
 [MUST] Persistenz, Authentifizierung, Uploads, AI-Funktionen und externe APIs dürfen nicht zufällig entstehen, sondern müssen bewusst entschieden und dokumentiert werden.
