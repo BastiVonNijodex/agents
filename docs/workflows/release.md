@@ -14,6 +14,12 @@ Dieser Workflow beschreibt die globale Release-Disziplin für Agenten. Projektsp
 
 [MUST] Der Agent klärt, welche extern wirksamen Schritte ausdrücklich freigegeben sind.
 
+[MUST_IF] Eine gebündelte Freigabe nach dem Workflow
+[Autopilot mit gebündelter Freigabe](https://bastivonnijodex.github.io/agents/workflows/autopilot.md)
+vorliegt, muss der Agent deren dokumentierten Scope, Handlungspaket und
+Stop-Bedingungen als Freigabegrenze verwenden. Nur die dort enthaltenen extern
+wirksamen Schritte gelten als ausdrücklich freigegeben.
+
 [MUST_NOT] Der Agent darf Tags, Releases, Pushes, produktionswirksame Deployments, Datenbankmigrationen, SSH-Zugriffe oder andere extern wirksame Schritte ohne ausdrückliche Freigabe nicht ausführen.
 
 [MUST_IF] Der Nutzer den Produktionsserver selbst bedient oder kein ausdrücklich freigegebener SSH-Zugriff für den Agenten besteht, muss der Agent die Übergabe als kopierbaren Terminalblock formulieren. Der Block muss auf dem konkreten Projektkontext beruhen und darf keine erfundenen Versions-, Backup-, Migrations- oder Deploy-Kommandos enthalten.

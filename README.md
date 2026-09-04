@@ -17,6 +17,7 @@ Weitere Einstiegspunkte:
 - [Security Reviewer](https://bastivonnijodex.github.io/agents/roles/security-reviewer.md)
 - [SKILLS.md](https://bastivonnijodex.github.io/agents/skills/SKILLS.md)
 - [WORKFLOWS.md](https://bastivonnijodex.github.io/agents/workflows/WORKFLOWS.md)
+- [Autopilot mit gebündelter Freigabe](https://bastivonnijodex.github.io/agents/workflows/autopilot.md)
 - [Backlog Item erstellen und verfeinern](https://bastivonnijodex.github.io/agents/workflows/backlog-item.md)
 - [Produktkonzept erstellen und entscheiden](https://bastivonnijodex.github.io/agents/workflows/product-concept.md)
 - [new-application.md](https://bastivonnijodex.github.io/agents/workflows/new-application.md)
@@ -49,6 +50,7 @@ verpflichtend:
 | `docs/roles/security-reviewer.md` | Unabhängige adversariale Prüfung sicherheitsrelevanter Änderungen. |
 | `docs/skills/SKILLS.md` | Skill-Lookup. |
 | `docs/workflows/WORKFLOWS.md` | Workflow-Lookup. |
+| `docs/workflows/autopilot.md` | Gebündelte Umsetzungs- und Produktionsfreigaben mit klaren Stop-Bedingungen. |
 | `docs/workflows/backlog-item.md` | Produktübergreifender Standard für Backlog Items. |
 | `docs/workflows/product-concept.md` | Produktübergreifender Lebenszyklus für Produktkonzepte. |
 | `docs/workflows/new-application.md` | Mindeststandard für neue Applikationen. |
