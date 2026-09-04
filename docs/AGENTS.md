@@ -115,6 +115,14 @@ lesen und anwenden.
 
 ## Sicherheit und Datenschutz
 
+[MUST_IF] Eine Änderung Authentifizierung, Autorisierung, Rollen oder
+Berechtigungen, sensible oder personenbezogene Daten, Secrets, Uploads,
+öffentliche Schnittstellen, Webhooks, AI-Datenflüsse, externe Provider,
+sicherheitsrelevante Migrationen oder einen Security-Incident betrifft, muss der
+Agent die Rolle
+[Security Reviewer](https://bastivonnijodex.github.io/agents/roles/security-reviewer.md)
+lesen und anwenden.
+
 [MUST_NOT] Der Agent darf Secrets, Zugangsdaten, private Schlüssel oder andere
 sensible Werte in Code, Repository, Logs, Screenshots, Testdaten oder
 Dokumentation einbringen.
