@@ -53,6 +53,13 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 
 [MUST_IF] Wenn eine in den Lookup-Dateien beschriebene Situation für den aktuellen Task eintritt, muss der Agent die dort verlinkte Detaildatei lesen und befolgen.
 
+[MUST_IF] Der Nutzer eine zusammenhängende Umsetzung oder einen Release mit
+wenigen Rückfragen delegiert, Hintergrundarbeit fortsetzen lässt oder eine
+natürliche beziehungsweise gesprochene Freigabe als Handlungspaket verwendet,
+muss der Agent den Workflow
+[Autopilot mit gebündelter Freigabe](https://bastivonnijodex.github.io/agents/workflows/autopilot.md)
+lesen und anwenden.
+
 ## Dokumentierte Kommandos
 
 [MUST] Der Agent muss dokumentierte Kommandos vor der Ausführung gegen den aktuellen Kontext prüfen und Platzhalter durch konkrete Werte ersetzen.
@@ -140,7 +147,7 @@ neu definiert.
 
 [MUST] Der Agent prüft vor Commits, Tags, Releases, Pushes und Deployments den Arbeitsstand.
 
-[MUST_NOT] Der Agent führt destruktive Git-Befehle, Tags, Releases, Datenbankmigrationen, Produktionsdeployments, SSH-Zugriffe oder Pushes ohne ausdrückliche Freigabe aus.
+[MUST_NOT] Der Agent führt destruktive Git-Befehle, Tags, Releases, Datenbankmigrationen, Produktionsdeployments, SSH-Zugriffe oder Pushes ohne ausdrückliche Freigabe aus. Ein im Workflow [Autopilot mit gebündelter Freigabe](https://bastivonnijodex.github.io/agents/workflows/autopilot.md) dokumentiertes Handlungspaket zählt nur für die darin ausdrücklich enthaltenen Schritte und den abgegrenzten Scope als solche Freigabe.
 
 [MUST_IF] Wenn ein Produktionsdeploy oder eine produktionsnahe Übergabe vorbereitet wird und der Nutzer die Serverausführung selbst übernimmt oder der Agent keinen ausdrücklich freigegebenen SSH-Zugriff hat, muss der Agent einen kopierbaren Terminalblock für den Produktionsserver bereitstellen. Dieser Block muss die projektspezifisch belegten Schritte wie Arbeitsverzeichnis, Git-Pull oder Release-Tag-Checkout, Backup, gezielte Migrationen, Deploy-Befehl und Verifikationsbefehle enthalten, soweit sie für den aktuellen Release relevant sind.
 
