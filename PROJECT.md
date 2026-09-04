@@ -39,6 +39,7 @@ Wichtige URLs:
 - https://bastivonnijodex.github.io/agents/AGENTS.md
 - https://bastivonnijodex.github.io/agents/roles/ROLES.md
 - https://bastivonnijodex.github.io/agents/roles/product-owner.md
+- https://bastivonnijodex.github.io/agents/roles/security-reviewer.md
 - https://bastivonnijodex.github.io/agents/skills/SKILLS.md
 - https://bastivonnijodex.github.io/agents/workflows/WORKFLOWS.md
 - https://bastivonnijodex.github.io/agents/workflows/backlog-item.md

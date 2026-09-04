@@ -17,6 +17,7 @@ Diese Datei ist die Lookup-Datei für Rollen. Rollen sind unabhängige Verantwor
 | Rolle | Lesen und verwenden, wenn | Zweck |
 |---|---|---|
 | [Product Owner](https://bastivonnijodex.github.io/agents/roles/product-owner.md) | Produktverantwortung, Produktklärung, Priorisierung, Backlog-Pflege oder die Erstellung und Verfeinerung von Backlog Items relevant ist. | Produktzusammenhänge wahren und umsetzbare, wertorientierte Entscheidungen und Backlog Items vorbereiten. |
+| [Security Reviewer](https://bastivonnijodex.github.io/agents/roles/security-reviewer.md) | Authentifizierung, Autorisierung, sensible Daten, Secrets, Uploads, öffentliche Schnittstellen, Webhooks, AI-Datenflüsse, externe Provider, sicherheitsrelevante Migrationen oder Incidents betroffen sind. | Sicherheitsannahmen adversarial prüfen, Findings priorisieren und risikobehaftete Freigaben challengen. |
 | Planner | Planung, Strukturierung, Priorisierung oder Zerlegung von Arbeit relevant ist. | Fachliche Klärung und belastbare Arbeitsplanung. |
 | Developer | Architektur, Implementierung, Refactoring, Code-Review oder technische Entscheidung relevant ist. | Saubere, kleine und projektkonforme Umsetzung. |
 | Tester | Teststrategie, Regression, Verifikation oder Qualitätsprüfung relevant ist. | Nachweis, dass Änderungen funktionieren und nichts Wesentliches brechen. |

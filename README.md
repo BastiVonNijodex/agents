@@ -14,6 +14,7 @@ Weitere Einstiegspunkte:
 
 - [ROLES.md](https://bastivonnijodex.github.io/agents/roles/ROLES.md)
 - [Product Owner](https://bastivonnijodex.github.io/agents/roles/product-owner.md)
+- [Security Reviewer](https://bastivonnijodex.github.io/agents/roles/security-reviewer.md)
 - [SKILLS.md](https://bastivonnijodex.github.io/agents/skills/SKILLS.md)
 - [WORKFLOWS.md](https://bastivonnijodex.github.io/agents/workflows/WORKFLOWS.md)
 - [Backlog Item erstellen und verfeinern](https://bastivonnijodex.github.io/agents/workflows/backlog-item.md)
@@ -45,6 +46,7 @@ verpflichtend:
 | `docs/AGENTS.md` | Veröffentlichte globale Agentenregeln. |
 | `docs/roles/ROLES.md` | Rollen-Lookup. |
 | `docs/roles/product-owner.md` | Produktübergreifende Product-Owner-Verantwortung. |
+| `docs/roles/security-reviewer.md` | Unabhängige adversariale Prüfung sicherheitsrelevanter Änderungen. |
 | `docs/skills/SKILLS.md` | Skill-Lookup. |
 | `docs/workflows/WORKFLOWS.md` | Workflow-Lookup. |
 | `docs/workflows/backlog-item.md` | Produktübergreifender Standard für Backlog Items. |
