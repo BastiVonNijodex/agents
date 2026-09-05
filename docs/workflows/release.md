@@ -31,10 +31,31 @@ Berechtigungen oder produktionsrelevante Konfiguration verändert, muss der Agen
 Kompatibilität, Migration, Backup, Verhalten bei Teilfehlern, Rollback und
 Wiederherstellung vor der extern wirksamen Handlung prüfen.
 
+[MUST] Vor Backup, Migration, Deployment oder einem anderen produktiven
+Schreibzugriff muss der Agent die Zielumgebung und ihre relevanten Ressourcen
+anhand projektspezifisch belegter Merkmale verifizieren. Dazu können Host oder
+Account, Dienst, Region, Datenbank beziehungsweise Datenspeicher, erwartete
+Struktur oder Sentinel-Ressourcen und aktuell laufende Version gehören.
+
+[MUST_NOT] Produktionsziele oder Datenspeicher dürfen nicht aus Projektname,
+Konvention, veraltetem Kontext oder ähnlich klingenden Ressourcen erraten
+werden. Bei fehlender oder widersprüchlicher Zielidentität stoppt der Agent vor
+dem ersten Schreibzugriff.
+
+[MUST_IF] Mehrere bereits geprüfte Arbeitspakete gemeinsam veröffentlicht
+werden, muss ein eigener Release-Scope enthaltene Commits oder Pull Requests,
+Abhängigkeiten, Migrationsreihenfolge, gemeinsame Checks, Zielumgebung und
+Rollback eindeutig dokumentieren.
+
 [MUST_IF] Ein Deployment vorbereitet wird, müssen die projektspezifisch
 belegten Health Checks, Smoke Tests, Monitoring- oder Log-Prüfungen für die
 Verifikation nach dem Deployment benannt und soweit autorisiert ausgeführt
 werden.
+
+[SHOULD] Wiederkehrende Release-, Backup-, Migrations-, Deployment- und
+Verifikationsschritte sollen über einen projektlokalen, versionierten,
+parametrisierten und fail-closed Workflow ausgeführt werden, sofern das Projekt
+einen solchen Weg belegt.
 
 [MUST_IF] Ein erforderlicher Check nicht ausführbar ist, muss der Agent den Grund und das verbleibende Risiko nennen.
 
