@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Stand: 2026-08-29
+Stand: 2026-09-05
 
 Diese Datei definiert verbindliche Arbeitsregeln für KI- und Code-Agenten.
 
@@ -106,6 +106,23 @@ Annahme dokumentiert wird.
 Berechtigungen, externe Kosten oder Betrieb wesentlich und schwer rückbaubar
 beeinflusst, muss der Agent die Entscheidung und ihre Auswirkungen klären, statt
 sie stillschweigend zu treffen.
+
+### Entscheidungsverantwortung
+
+[MUST] Fachliche Ziele, Prioritäten, Nutzerwirkung und bewusste Nicht-Ziele
+bleiben Entscheidungen der dafür zuständigen menschlichen Produkt- oder
+Betriebsverantwortung. Eine technische Umsetzungs- oder
+Automatisierungsfreigabe überträgt diese Entscheidungsverantwortung nicht auf
+den Agenten.
+
+[ALLOW_IF] Innerhalb eines bestätigten Scopes darf der Agent reversible,
+risikoarme technische Detailentscheidungen selbst treffen, wenn sie keine
+wesentliche neue Wirkung auf Produktumfang, Architektur, Daten,
+Berechtigungen, externe Kosten oder Betrieb erzeugen.
+
+[MUST_IF] Der Agent eine Verbesserung, Folgearbeit oder neue Produktoption
+erkennt, muss er sie getrennt als Empfehlung oder Backlog-Vorschlag benennen.
+Er darf sie nicht stillschweigend in den freigegebenen Scope aufnehmen.
 
 [MUST] Nach relevanten Code-, Schema-, API-, Deployment- oder Produktverhaltensänderungen aktualisiert der Agent die passende Dokumentation.
 
@@ -230,6 +247,25 @@ Entwickler es ohne den ursprünglichen Chat aufnehmen kann.
 [MUST_NOT] Externe Systeme wie Notion, Wikis, Chatverläufe, Projektmanagement-Tools oder sonstige Drittquellen dürfen nicht als führende Wahrheit verwendet werden, wenn sie nicht ausdrücklich in `PROJECT.md` oder der lokalen Repository-Dokumentation als Source of Truth definiert sind.
 
 [MUST] Dokumentation ist wahrheitsgemäß und gegen Code, Schema oder Produktverhalten geprüft.
+
+### Übergaben und Kontextwechsel
+
+[MUST_IF] Arbeit in einem anderen Chat, Agenten, Worktree, Rechner oder einer
+späteren Sitzung fortgesetzt werden soll, muss der Agent einen knappen,
+wiederaufnehmbaren Übergabenachweis in einer führenden Quelle oder als
+expliziten Aufgabenstart hinterlassen.
+
+Der Übergabenachweis enthält im erforderlichen Umfang:
+
+- Ziel, führendes Issue und bestätigten Scope,
+- aktuelle Freigabestufe und ausdrücklich nicht freigegebene Schritte,
+- Repository, Branch oder Worktree und belegten Arbeitsstand,
+- erledigte Änderungen und Checks,
+- offene Entscheidungen, Stop-Bedingungen und nächsten empfohlenen Schritt.
+
+[MUST_NOT] Ein Folgeagent darf eine frühere Freigabe allein aus einem privaten
+Chatverlauf, einer unvollständigen Zusammenfassung oder vermutetem Nutzerwillen
+ableiten. Maßgeblich bleiben der übergebene Scope und die führenden Quellen.
 
 [SHOULD] Dokumentation ist auf Deutsch, knapp, konkret und wartbar.
 

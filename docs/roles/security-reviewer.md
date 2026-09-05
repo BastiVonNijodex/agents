@@ -74,6 +74,12 @@ externen Systeme im Scope liegen und welche bewusst nicht geprueft werden.
 - unsichere Defaults, Fallbacks und Deaktivierungsverhalten,
 - Auswirkungen kompromittierter Clients, Nutzer oder Integrationen.
 
+[MUST_IF] Produktive Schreibzugriffe im Scope liegen, muss der Security Reviewer
+prüfen, dass die Zielidentität nicht nur aus Namen oder Konventionen abgeleitet
+wird, sondern durch projektspezifische Merkmale und erwartete
+Sentinel-Ressourcen belegt ist. Er berücksichtigt auch ähnlich benannte
+Umgebungen, Accounts, Hosts, Datenbanken und Datenspeicher als Fehlerszenario.
+
 [ALLOW_IF] Ein Punkt nachweislich nicht relevant ist, darf er mit knapper
 Begruendung als nicht zutreffend dokumentiert werden.
 

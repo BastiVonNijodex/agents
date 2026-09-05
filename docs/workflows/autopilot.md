@@ -163,6 +163,36 @@ Voraussetzungen weiterhin erfuellt sind.
 Abweichungen und Abschluss. Unveraenderter Fortschritt benoetigt keine kuenstlich
 haeufigen Freigabeanfragen.
 
+## Produktentscheidungen und technische Ausfuehrung
+
+[MUST] Produktziel, Prioritaet, Nutzerwirkung, fachlicher Scope und bewusste
+Nicht-Ziele bleiben bei der zustaendigen menschlichen Produktverantwortung.
+Eine Autopilot-Freigabe autorisiert technische Ausfuehrung, aber keine
+stillschweigende Erweiterung dieser Entscheidungen.
+
+[ALLOW_IF] Der Agent darf innerhalb des bestaetigten Scopes reversible,
+risikoarme technische Details selbst entscheiden und dokumentieren.
+
+[MUST_IF] Eine neue Produktoption, groessere Architekturentscheidung,
+wesentliche Betriebswirkung oder wertvolle Folgearbeit entsteht, muss der Agent
+sie getrennt zur Entscheidung oder als Backlog-Vorschlag vorlegen. Der laufende
+Scope bleibt unveraendert.
+
+## Release-Buendel
+
+[ALLOW_IF] Mehrere bereits einzeln abgegrenzte und gepruefte Arbeitspakete
+duerfen in einem Release gebuendelt werden, wenn ein eigener Release-Scope die
+enthaltenen Versionen, Commits oder Pull Requests, Abhaengigkeiten,
+Migrationsreihenfolge, gemeinsamen Checks und den Rollback-Pfad eindeutig
+benennt.
+
+[MUST_NOT] Eine Release-Freigabe fuer ein Buendel darf fehlende
+Umsetzungsfreigaben, Akzeptanz-, Security-, Review- oder CI-Gates der
+enthaltenen Arbeitspakete ersetzen.
+
+[MUST] Die Release- und Deploymentfreigabe gilt nur fuer das konkret benannte,
+nachweislich gepruefte Buendel und die bezeichnete Zielumgebung.
+
 ## Zwingende Stop-Bedingungen
 
 Der Agent stoppt vor der betroffenen Handlung und fordert bei Bedarf eine neue
@@ -220,6 +250,52 @@ veraendern. Der Agent liefert stattdessen eine genaue Aenderungsanweisung:
 [MUST] Der Agent setzt den betroffenen Deploymentpfad erst fort, nachdem der
 Nutzer die manuelle Aktualisierung bestaetigt hat.
 
+## Zielidentitaet vor produktiven Schreibzugriffen
+
+[MUST] Vor Backup, Migration, Deployment oder einem anderen produktiven
+Schreibzugriff muss der Agent die tatsaechliche Zielidentitaet mit
+projektspezifisch belegten, moeglichst unabhaengigen Merkmalen verifizieren.
+Je nach System gehoeren dazu Umgebung, Host oder Account, Dienst, Region,
+Datenbank oder Datenspeicher, erwartete Struktur beziehungsweise
+Sentinel-Ressourcen und aktuell laufende Version.
+
+[MUST_NOT] Der Agent darf produktive Ziele, Datenbanknamen, Accounts,
+Verzeichnisse oder Ressourcen nicht allein aus Projektname, Konvention,
+Umgebungsvariable, veraltetem Chatkontext oder aehnlich klingenden Namen
+ableiten.
+
+[MUST_IF] Die Zielmerkmale fehlen, widerspruechlich sind oder nicht zum
+freigegebenen Ziel passen, muss der Agent vor dem ersten Schreibzugriff stoppen.
+Ein erfolgreiches Backup eines falschen oder unvollstaendigen Ziels gilt nicht
+als gueltiger Wiederherstellungsnachweis.
+
+## Projektlokale Automatisierung
+
+[SHOULD] Wiederkehrende, fehleranfaellige Release-, Migrations-, Backup- und
+Deploymentfolgen sollen durch ein projektlokales, versioniertes und
+fail-closed Automationsskript oder einen gleichwertigen Workflow gekapselt
+werden.
+
+[MUST] Eine solche Automatisierung muss Parameter und Zielidentitaet
+validieren, einen schreibfreien Plan oder Vorlauf ermoeglichen, bei Teilfehlern
+abbrechen, sensible Ausgaben vermeiden und die erforderlichen Nachweise fuer
+Backup, Migration, Version und Smokes liefern.
+
+[MUST_NOT] Ein Automationsskript erweitert weder die Freigabe noch die
+technischen Berechtigungen. Es darf keine ungeprueften Platzhalter, impliziten
+Produktionsziele oder versteckten Secret-Zugriffe enthalten.
+
+## Wiederaufnahme und Uebergabe
+
+[MUST_IF] Der Ablauf in einem anderen Chat, Agenten, Worktree, Rechner oder
+einer spaeteren Sitzung fortgesetzt wird, muss die Uebergabe Ziel, fuehrendes
+Issue, Scope, Freigabestufe, nicht freigegebene Schritte, Arbeitsstand, Checks,
+offene Entscheidungen, Stop-Bedingungen und naechste Empfehlung enthalten.
+
+[MUST] Der uebernehmende Agent prueft die uebergebenen Angaben gegen die
+fuehrenden Quellen und den aktuellen Zustand. Er setzt nur das bereits
+eindeutig autorisierte Handlungspaket fort.
+
 ## Projektadapter
 
 [MUST_IF] Ein Projekt diesen Workflow verwendet, muss seine `PROJECT.md` oder
@@ -232,15 +308,23 @@ fuehrende Projektdokumentation mindestens festlegen:
 - welches Produktionspaket eine separate Freigabe abdeckt,
 - ob der Agent Produktion selbst bedient oder nur eine Uebergabe erstellt,
 - welche Konfigurationen oder Secrets ausschliesslich manuell bleiben,
-- welche Health-, Smoke-, Monitoring- und Rollback-Nachweise erforderlich sind.
+- welche Health-, Smoke-, Monitoring- und Rollback-Nachweise erforderlich sind,
+- wie jede Zielumgebung und jeder produktive Datenspeicher unabhaengig
+  identifiziert wird,
+- welcher schreibfreie Vorlauf vor produktiven Schreibzugriffen vorgesehen ist,
+- welche projektlokalen Automationswege fuer Release, Backup, Migration,
+  Deployment und Verifikation verbindlich oder bevorzugt sind,
+- wie mehrere abgeschlossene Arbeitspakete zu einem belegten Release-Scope
+  gebuendelt werden,
+- welche Angaben eine wiederaufnehmbare Uebergabe enthalten muss.
 
 [MUST] Bis ein spezifischer Widerspruch bewusst harmonisiert wurde, gilt die
 engere Projekt- oder Plattformregel.
 
-## Beispiel: FINJA Umsetzung
+## Beispiel: Applikationsumsetzung
 
-Der Nutzer sagt nach geklaertem Issue-Scope: `Setze FINJA Issue 250 um.` Der
-FINJA-Projektadapter kann dies als Umsetzungsfreigabe fuer einen frischen
+Der Nutzer sagt nach geklaertem Issue-Scope: `Setze Issue 42 um.` Der
+Projektadapter kann dies als Umsetzungsfreigabe fuer einen frischen
 Worktree, Code und Dokumentation, gezielte DEV-Schritte, automatisierte Checks,
 angemeldete DEV-Abnahme, Commit, Push, Pull Request, CI-Korrekturen und Merge
 definieren.
@@ -250,7 +334,7 @@ wendet wegen des Authentifizierungsbezugs den Security Reviewer an. Ein
 unerwarteter produktiver Datenzugriff oder ein ungeklaertes hohes Finding stoppt
 den Ablauf. Weder DEV-Abnahme noch Merge autorisieren einen Produktionsrelease.
 
-## Beispiel: FINJA Produktion mit manueller Environment-Datei
+## Beispiel: Produktion mit manuell administrierter Konfiguration
 
 Der Nutzer sagt fuer einen belegten, geprueften Release:
 `Release und Deployment freigegeben.` Der Projektadapter kann Backup, Tag,
@@ -274,6 +358,20 @@ Der Abschluss nennt mindestens:
 - externe Aktionen und manuell erledigte Voraussetzungen,
 - nicht ausgefuehrte oder fehlgeschlagene Schritte,
 - verbleibende Risiken, Blocker und Folgearbeit.
+
+Danach nennt der Agent unter `Empfohlene naechste Schritte` eine kurze,
+priorisierte Reihenfolge:
+
+1. Ist der Stand releasefaehig, nennt er zuerst den konkreten Release- oder
+   Deployment-Schritt und die dafuer noch erforderliche Freigabe.
+2. Ist der Stand nicht releasefaehig, nennt er zuerst den belegten Blocker oder
+   die fehlende Abnahme.
+3. Anschliessend empfiehlt er die wertvollste durch fuehrende Quellen belegte
+   Folgearbeit oder die wichtigsten offenen Backlog Items samt Abhaengigkeiten.
+
+[MUST_NOT] Der Agent darf Empfehlungen nicht als bereits freigegebenen Scope
+behandeln. Produktpriorisierung und neue Umsetzung bleiben getrennte
+Entscheidungen.
 
 [MUST] Der Agent meldet den Ablauf nur dann als abgeschlossen, wenn das
 autorisierte Handlungspaket tatsaechlich abgeschlossen ist oder ein verbleibender

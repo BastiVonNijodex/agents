@@ -239,6 +239,17 @@ Backup und Wiederherstellung definiert werden.
 [MUST] Laufende Version und Umgebung müssen im Betrieb nachvollziehbar sein,
 soweit ein Deployment vorgesehen ist.
 
+[MUST_IF] Produktive Deployments oder Schreibzugriffe vorgesehen sind, muss das
+Projekt dokumentieren, wie Zielumgebung, Account oder Host, Dienst,
+Datenbank beziehungsweise Datenspeicher und erwartete Struktur vor der
+Ausführung unabhängig verifiziert werden. Gleichnamige oder ähnlich benannte
+DEV-, Test- und Produktionsressourcen müssen sicher unterscheidbar sein.
+
+[SHOULD] Wiederkehrende Release-, Backup-, Migrations-, Deployment- und
+Smoke-Test-Schritte sollen in einem projektlokalen, versionierten und
+fail-closed Workflow zusammengefasst werden, der einen schreibfreien Vorlauf
+und redigierte Nachweise unterstützt.
+
 [MUST_IF] Datenmodell, persistierte Daten oder öffentliche Schnittstellen
 geändert werden, müssen Rückwärtskompatibilität, Migrationspfad, Verhalten bei
 Teilfehlern und Rollback oder Wiederherstellung vor der produktionsnahen
