@@ -178,6 +178,11 @@ Ergebnisnachweis und eine Einordnung fehlender Prüfbarkeit.
 - erneut auszuführende Evals sowie
 - den Umgang mit sicherheitsrelevanten Aktualisierungen.
 
+[MUST_IF] Globale Regeln aus diesem Repository verwendet werden, enthält der
+Nachweis zusätzlich die SemVer-Regelversion, den vollständigen Commit-SHA, die
+unveränderliche Regelquelle und den projektspezifischen Update-Modus nach
+[VERSIONING.md](https://bastivonnijodex.github.io/agents/VERSIONING.md).
+
 ## 9. Coding-Spezialisierung auswerten
 
 [MUST_IF] Die Coding-Spezialisierung nach

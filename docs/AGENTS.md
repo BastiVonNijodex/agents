@@ -43,6 +43,7 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 | [WORKFLOWS.md](https://bastivonnijodex.github.io/agents/workflows/WORKFLOWS.md) | Bei wiederkehrenden Arbeitsabläufen | Lookup für zusammengesetzte Workflows. |
 | [COMMANDS.md](https://bastivonnijodex.github.io/agents/COMMANDS.md) | Bei dokumentierten Kommandos oder Slash-Commands | Grammatik, Auflösung und Fehlerbehandlung für dokumentierte Kommandos. |
 | [TECHNOLOGIES.md](https://bastivonnijodex.github.io/agents/TECHNOLOGIES.md) | Bei technologiespezifischer Rollenarbeit | Lookup für technologiespezifische Regeldateien. |
+| [VERSIONING.md](https://bastivonnijodex.github.io/agents/VERSIONING.md) | Bei Fixierung oder Aktualisierung des Regelstands | SemVer, unveränderliche Referenzen, Kompatibilität und Migration. |
 | `README.md` | Bei Relevanz | Menschlicher Schnelleinstieg in Projekt, Setup und Kommandos. |
 
 [MUST] Der Agent muss alle für den aktuellen Task verpflichtenden Einstiegsdateien im aktuellen Kontext vollständig und aktuell genug kennen und befolgen.
@@ -204,8 +205,14 @@ einschlägigen Security-, Datenschutz-, Autopilot- und Release-Regeln gelten
 zusätzlich.
 
 [MUST] Der für einen Task wirksame Stand wesentlicher Regeln und
-Harness-Konfigurationen muss anhand einer Version, eines unveränderlichen
-Referenzstands oder eines gleichwertigen Nachweises identifizierbar sein.
+Harness-Konfigurationen muss anhand der veröffentlichten SemVer-Regelversion
+und des vollständigen Commit-SHA oder eines gleichwertig unveränderlichen
+Nachweises identifizierbar sein.
+
+[MUST_IF] Noch keine passende Regelversion veröffentlicht ist oder ein Projekt
+bewusst einen unveröffentlichten Stand verwendet, muss der vollständige
+Commit-SHA als führender Regelstand dokumentiert und der Stand ausdrücklich als
+unveröffentlicht gekennzeichnet werden.
 
 [MUST_IF] Eine Harness- oder Regeländerung Freigabelogik, Berechtigungen,
 Werkzeuge, Memory, Delegation, Nachweise oder Stop-Bedingungen beeinflusst,
@@ -215,6 +222,12 @@ Prüfungen vor ihrer Übernahme bewertet werden.
 [MUST_IF] Ein Projekt Regeln oder Harness-Konfigurationen auf einem bestimmten
 Stand fixiert, muss es festlegen, wie sicherheitsrelevante Aktualisierungen
 erkannt, bewertet und kontrolliert übernommen werden.
+
+[MUST_IF] Ein Projekt den globalen Regelstand fixiert oder aktualisiert, muss es
+den Prozess aus
+[VERSIONING.md](https://bastivonnijodex.github.io/agents/VERSIONING.md)
+anwenden. Die aktuelle GitHub-Pages-URL dient der Orientierung und
+Aktualisierungserkennung, ersetzt aber keine unveränderliche Regelreferenz.
 
 [MUST_NOT] Globale Harness-Regeln dürfen konkrete Agentenprodukte, Modelle,
 Provider, Dateinamen, CI-Systeme, Speichertechnologien oder

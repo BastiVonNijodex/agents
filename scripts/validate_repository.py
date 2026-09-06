@@ -11,7 +11,13 @@ from urllib.parse import unquote, urlsplit
 
 
 PAGES_BASE = "https://bastivonnijodex.github.io/agents/"
+RAW_RULE_BASE = "https://raw.githubusercontent.com/BastiVonNijodex/agents/"
 CANONICAL_APP_PATH = "/Users/bastimeissner/vibecoding/<appname>"
+SEMVER_RE = re.compile(
+    r"^(?:v)?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)"
+    r"(?:-[0-9A-Za-z.-]+)?$"
+)
+COMMIT_SHA_RE = re.compile(r"^[0-9a-f]{40}$")
 ALLOWED_MARKERS = {
     "MUST",
     "MUST_IF",
@@ -28,8 +34,11 @@ REQUIRED_FILES = {
     "PROJECT.md",
     "README.md",
     "docs/AGENTS.md",
+    "docs/CHANGELOG.md",
     "docs/COMMANDS.md",
     "docs/TECHNOLOGIES.md",
+    "docs/VERSION.md",
+    "docs/VERSIONING.md",
     "docs/roles/ROLES.md",
     "docs/skills/SKILLS.md",
     "docs/workflows/WORKFLOWS.md",
@@ -173,7 +182,13 @@ def validate_templates(root: Path) -> list[str]:
 
     if agents_template.is_file():
         text = agents_template.read_text(encoding="utf-8")
-        for required in (PAGES_BASE + "AGENTS.md", "PROJECT.md", "curl -L"):
+        for required in (
+            PAGES_BASE + "AGENTS.md",
+            "PROJECT.md",
+            "vollständigen Commit-SHA",
+            "nicht wirksamer Änderungskandidat",
+            "curl -L",
+        ):
             if required not in text:
                 errors.append(f"templates/AGENTS.md: erforderlicher Inhalt fehlt: {required}")
 
@@ -182,9 +197,85 @@ def validate_templates(root: Path) -> list[str]:
         for heading in sorted(REQUIRED_TEMPLATE_HEADINGS):
             if heading not in text:
                 errors.append(f"templates/PROJECT.md: erforderliche Überschrift fehlt: {heading}")
-        for required in ("App-Name: `<appname>`", CANONICAL_APP_PATH):
+        for required in (
+            "App-Name: `<appname>`",
+            CANONICAL_APP_PATH,
+            "Regelversion: `<regelversion>`",
+            "Regel-Commit: `<regel-commit-sha>`",
+            RAW_RULE_BASE + "<regel-commit-sha>/docs/AGENTS.md",
+            "Update-Modus: `<regel-update-modus>`",
+        ):
             if required not in text:
                 errors.append(f"templates/PROJECT.md: erforderlicher Inhalt fehlt: {required}")
+    return errors
+
+
+def validate_declared_version(root: Path) -> list[str]:
+    version_file = root / "docs/VERSION.md"
+    changelog = root / "docs/CHANGELOG.md"
+    if not version_file.is_file() or not changelog.is_file():
+        return []
+
+    match = re.search(
+        r"^Deklarierte Version: `([^`]+)`$",
+        version_file.read_text(encoding="utf-8"),
+        re.MULTILINE,
+    )
+    if match is None:
+        return ["docs/VERSION.md: deklarierte Version fehlt"]
+    version = match.group(1)
+    errors: list[str] = []
+    if SEMVER_RE.fullmatch(version) is None:
+        errors.append(f"docs/VERSION.md: ungültige SemVer-Version: {version}")
+    if (
+        re.search(
+            rf"^## {re.escape(version)}(?:\s|$)",
+            changelog.read_text(encoding="utf-8"),
+            re.MULTILINE,
+        )
+        is None
+    ):
+        errors.append(f"docs/CHANGELOG.md: Eintrag für Version {version} fehlt")
+    return errors
+
+
+def reference_field(text: str, name: str) -> str | None:
+    match = re.search(
+        rf"^{re.escape(name)}:[ \t]*(?:\n[ \t]*)?`([^`]+)`$",
+        text,
+        re.MULTILINE,
+    )
+    return match.group(1) if match else None
+
+
+def validate_pinned_rule_reference(
+    text: str, source: str = "PROJECT.md"
+) -> list[str]:
+    version = reference_field(text, "Regelversion")
+    commit = reference_field(text, "Regel-Commit")
+    rule_source = reference_field(text, "Unveränderliche Regelquelle")
+    update_mode = reference_field(text, "Update-Modus")
+    errors: list[str] = []
+
+    if version is None:
+        errors.append(f"{source}: Regelversion fehlt")
+    elif version != "unveröffentlicht" and SEMVER_RE.fullmatch(version) is None:
+        errors.append(f"{source}: ungültige Regelversion: {version}")
+
+    if commit is None:
+        errors.append(f"{source}: Regel-Commit fehlt")
+    elif COMMIT_SHA_RE.fullmatch(commit) is None:
+        errors.append(f"{source}: Regel-Commit muss ein vollständiger 40-stelliger SHA sein")
+
+    if rule_source is None:
+        errors.append(f"{source}: unveränderliche Regelquelle fehlt")
+    elif commit is not None and COMMIT_SHA_RE.fullmatch(commit):
+        expected = f"{RAW_RULE_BASE}{commit}/docs/AGENTS.md"
+        if rule_source != expected:
+            errors.append(f"{source}: unveränderliche Regelquelle passt nicht zum Regel-Commit")
+
+    if update_mode is None or not update_mode.strip() or "<" in update_mode:
+        errors.append(f"{source}: konkreter Update-Modus fehlt")
     return errors
 
 
@@ -198,6 +289,7 @@ def validate_repository(root: Path) -> list[str]:
     errors.extend(validate_links(root, files))
     errors.extend(validate_reachability(root))
     errors.extend(validate_templates(root))
+    errors.extend(validate_declared_version(root))
     return sorted(set(errors))
 
 
@@ -210,8 +302,20 @@ def main() -> int:
         default=Path(__file__).resolve().parents[1],
         help="Repository-Root (Standard: Elternordner dieses Skripts)",
     )
+    parser.add_argument(
+        "--project-reference",
+        type=Path,
+        help="Ausgefüllte PROJECT.md eines konsumierenden Projekts zusätzlich prüfen",
+    )
     args = parser.parse_args()
     errors = validate_repository(args.root)
+    if args.project_reference:
+        errors.extend(
+            validate_pinned_rule_reference(
+                args.project_reference.read_text(encoding="utf-8"),
+                str(args.project_reference),
+            )
+        )
     if errors:
         print("Repository-Validierung fehlgeschlagen:", file=sys.stderr)
         for error in errors:
