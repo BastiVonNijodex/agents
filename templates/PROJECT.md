@@ -17,6 +17,22 @@ bestätigten Scopes selbst treffen dürfen.
 
 Beschreibe relevante Versionen, Deployments, Umgebungen oder Release-Regeln.
 
+## Lokaler Projektpfad
+
+App-Name: `<appname>`
+
+Kanonischer Basisordner: `/Users/bastimeissner/vibecoding/<appname>`
+
+[MUST] Ersetze `<appname>` durch den kurzen, stabilen App-Bezeichner in
+Kleinbuchstaben und bei Bedarf mit Bindestrichen. Der Basisordner enthält den
+eindeutig zugeordneten lokalen Repository-Checkout oder führenden Projektstand.
+
+[MUST] Zusätzliche Worktrees oder temporäre Arbeitskopien dürfen außerhalb des
+Basisordners liegen, ersetzen ihn aber nicht.
+
+[MUST_NOT] Ein vorhandener Pfad darf nicht ungeprüft überschrieben, umgewidmet
+oder gelöscht werden.
+
 ## Source of Truth
 
 [MUST] Definiere, welche Repository-Dokumentation, Issues, Systeme und

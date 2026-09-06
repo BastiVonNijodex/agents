@@ -11,6 +11,7 @@ from urllib.parse import unquote, urlsplit
 
 
 PAGES_BASE = "https://bastivonnijodex.github.io/agents/"
+CANONICAL_APP_PATH = "/Users/bastimeissner/vibecoding/<appname>"
 ALLOWED_MARKERS = {
     "MUST",
     "MUST_IF",
@@ -42,6 +43,7 @@ REQUIRED_TEMPLATE_HEADINGS = {
     "## Release, Deployment und Betrieb",
     "## Übergabe und Wiederaufnahme",
     "## Definition of Done",
+    "## Lokaler Projektpfad",
     "## Verbotene Aktionen",
 }
 
@@ -180,6 +182,9 @@ def validate_templates(root: Path) -> list[str]:
         for heading in sorted(REQUIRED_TEMPLATE_HEADINGS):
             if heading not in text:
                 errors.append(f"templates/PROJECT.md: erforderliche Überschrift fehlt: {heading}")
+        for required in ("App-Name: `<appname>`", CANONICAL_APP_PATH):
+            if required not in text:
+                errors.append(f"templates/PROJECT.md: erforderlicher Inhalt fehlt: {required}")
     return errors
 
 

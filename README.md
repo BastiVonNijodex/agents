@@ -28,6 +28,10 @@ Weitere Einstiegspunkte:
 
 ## Verwendung in einem Repository
 
+Jedes App-Projekt besitzt einen kanonischen lokalen Basisordner unter
+`/Users/bastimeissner/vibecoding/<appname>`. Zusätzliche Worktrees dürfen
+anderswo liegen, solange der Basis-Checkout erhalten bleibt.
+
 Lege im Ziel-Repository eine kurze lokale `AGENTS.md` an. Eine Vorlage liegt unter:
 
 `templates/AGENTS.md`
