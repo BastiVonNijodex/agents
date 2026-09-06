@@ -359,7 +359,7 @@ Der Abschluss nennt mindestens:
 - nicht ausgefuehrte oder fehlgeschlagene Schritte,
 - verbleibende Risiken, Blocker und Folgearbeit.
 
-Danach nennt der Agent unter `Empfohlene naechste Schritte` eine kurze,
+Danach nennt der Agent unter `Empfohlene nächste Schritte` eine kurze,
 priorisierte Reihenfolge:
 
 1. Ist der Stand releasefaehig, nennt er zuerst den konkreten Release- oder

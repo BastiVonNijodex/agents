@@ -11,6 +11,7 @@ sys.path.insert(0, str(REPOSITORY_ROOT / "scripts"))
 
 from validate_repository import (  # noqa: E402
     validate_declared_version,
+    validate_global_policy,
     validate_links,
     validate_markers,
     validate_pinned_rule_reference,
@@ -118,6 +119,20 @@ class RepositoryValidatorTests(unittest.TestCase):
             errors = validate_declared_version(root)
 
             self.assertTrue(any("ungültige SemVer-Version" in error for error in errors))
+
+    def test_missing_next_step_policy_fails(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            docs = root / "docs"
+            docs.mkdir()
+            (docs / "AGENTS.md").write_text(
+                "# AGENTS.md\n\nKeine Abschlussregel.\n",
+                encoding="utf-8",
+            )
+
+            errors = validate_global_policy(root)
+
+            self.assertTrue(any("Empfohlene nächste Schritte" in error for error in errors))
 
 
 if __name__ == "__main__":

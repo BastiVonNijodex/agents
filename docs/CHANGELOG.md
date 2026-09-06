@@ -20,7 +20,9 @@ Erste versionierte Baseline des allgemeinen Agenten-Frameworks:
 - verbindlicher kanonischer App-Basisordner unter
   `/Users/bastimeissner/vibecoding/<appname>`,
 - Repository-Selbstanwendung, struktureller Validator und GitHub-CI sowie
-- SemVer-, Commit-SHA-, SECURITY- und Migrationsmodell.
+- SemVer-, Commit-SHA-, SECURITY- und Migrationsmodell sowie
+- verbindliche priorisierte Empfehlungen für nächste Schritte am Ende jeder
+  Agentenantwort.
 
 ### Migration
 
