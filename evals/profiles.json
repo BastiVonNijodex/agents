@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "profiles": {
+    "general": {
+      "title": "Allgemeine Agentenarbeit",
+      "extends": [],
+      "case_profiles": ["general"],
+      "description": "Verbindliche Baseline fuer jeden Harness-Einsatz."
+    },
+    "coding": {
+      "title": "Coding-Arbeit",
+      "extends": ["general"],
+      "case_profiles": ["coding"],
+      "description": "Additive risikoreiche Spezialisierung fuer Repository-, Code- und Konfigurationsaenderungen."
+    },
+    "production": {
+      "title": "Produktionsarbeit",
+      "extends": ["general"],
+      "case_profiles": ["production"],
+      "description": "Additive besonders risikoreiche Spezialisierung fuer produktive Systeme, Daten, Secrets und externe Wirkung."
+    }
+  }
+}

@@ -44,6 +44,7 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 | [COMMANDS.md](https://bastivonnijodex.github.io/agents/COMMANDS.md) | Bei dokumentierten Kommandos oder Slash-Commands | Grammatik, Auflösung und Fehlerbehandlung für dokumentierte Kommandos. |
 | [TECHNOLOGIES.md](https://bastivonnijodex.github.io/agents/TECHNOLOGIES.md) | Bei technologiespezifischer Rollenarbeit | Lookup für technologiespezifische Regeldateien. |
 | [VERSIONING.md](https://bastivonnijodex.github.io/agents/VERSIONING.md) | Bei Fixierung oder Aktualisierung des Regelstands | SemVer, unveränderliche Referenzen, Kompatibilität und Migration. |
+| [EVALS.md](https://bastivonnijodex.github.io/agents/EVALS.md) | Bei Harness-Auswahl, -Änderung oder -Bewertung | Wiederverwendbare Eval-Baseline und additive Risikoprofile. |
 | `README.md` | Bei Relevanz | Menschlicher Schnelleinstieg in Projekt, Setup und Kommandos. |
 
 [MUST] Der Agent muss alle für den aktuellen Task verpflichtenden Einstiegsdateien im aktuellen Kontext vollständig und aktuell genug kennen und befolgen.
@@ -183,6 +184,16 @@ Werkzeugzugriffe, dauerhaften Zustand, Delegation oder extern wirksame
 Handlungen beeinflusst, müssen angemessene Positiv-, Negativ- und
 Fehlerfallprüfungen definiert und bei wesentlichen Änderungen erneut
 ausgeführt werden.
+
+[MUST_IF] Ein Harness ausgewählt, wesentlich geändert oder auf seine Eignung
+geprüft wird, muss die wiederverwendbare Baseline aus
+[EVALS.md](https://bastivonnijodex.github.io/agents/EVALS.md) ausgeführt und um
+die aktivierten Coding- beziehungsweise Produktionsprofile sowie
+projektspezifische Fälle ergänzt werden.
+
+[MUST_NOT] Ein synthetischer Referenzlauf oder ein rein strukturell
+erfolgreicher Eval-Bericht darf als Nachweis der Eignung eines realen
+Harnesses, Projekts oder Produktionseinsatzes ausgegeben werden.
 
 [MUST] Ein Harness muss bei fehlendem Kontext, widersprüchlicher Zielidentität,
 unzureichender Freigabe oder ausgefallenen Schutzkontrollen für die betroffene

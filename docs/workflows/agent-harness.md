@@ -152,6 +152,11 @@ Aktions-, Entscheidungs-, Fehler- und Testergebnisse.
 [MUST] Der Eval-Plan leitet seine Fälle aus Einsatz, Vertrauensgrenzen,
 Kontrollmatrix und aktivierten Risikospezialisierungen ab.
 
+[MUST] Als wiederverwendbarer Ausgangspunkt wird die Baseline aus
+[EVALS.md](https://bastivonnijodex.github.io/agents/EVALS.md) verwendet. Das
+Profil `general` gilt immer; `coding` und `production` werden bei aktivierter
+Spezialisierung additiv ausgeführt und um projektspezifische Fälle ergänzt.
+
 Er enthält im erforderlichen Umfang:
 
 - erwartete Erfolgsfälle,
@@ -166,6 +171,11 @@ Er enthält im erforderlichen Umfang:
 
 [MUST] Jeder erforderliche Fall erhält erwartetes Verhalten, Testweg,
 Ergebnisnachweis und eine Einordnung fehlender Prüfbarkeit.
+
+[MUST] Ein maschinenlesbar erfolgreicher Lauf belegt nur den Vergleich mit dem
+Fallkatalog. Die Abschlussbewertung erfordert zusätzlich die inhaltliche
+Prüfung der Kontrollmatrix und Evidenz; synthetische Referenzergebnisse gelten
+nicht als Eignungsnachweis.
 
 ## 8. Regel- und Konfigurationsstand belegen
 
