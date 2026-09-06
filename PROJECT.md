@@ -12,6 +12,22 @@ Die zentrale Einstiegsdatei ist:
 
 https://bastivonnijodex.github.io/agents/AGENTS.md
 
+## Lokaler Projektpfad
+
+Der stabile App- beziehungsweise Repository-Name ist `agents`.
+
+Der kanonische lokale Basis-Checkout liegt unter:
+
+`/Users/bastimeissner/vibecoding/agents`
+
+[MUST] Zusätzliche Worktrees oder bestehende Arbeitskopien an anderen Orten
+dürfen für isolierte Tasks verwendet werden, ersetzen den kanonischen
+Basis-Checkout aber nicht.
+
+[MUST] Vor einer zustandsverändernden Arbeit muss die verwendete Arbeitskopie
+dem Repository `BastiVonNijodex/agents` eindeutig zugeordnet und ihr Git-Stand
+geprüft werden.
+
 ## Fachliche Leitplanken
 
 [MUST] Die Markdown-Dateien unter `docs/` bilden die fachliche Single Source of Truth für konsumierende Agenten und Projekt-Repositories.

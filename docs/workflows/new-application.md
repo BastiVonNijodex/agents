@@ -36,6 +36,20 @@ angewendet werden.
 
 ## Grundsatz
 
+[MUST] Vor der Initialisierung bestimmt der Agent den stabilen App-Namen und
+den kanonischen Basisordner
+`/Users/bastimeissner/vibecoding/<appname>` nach den globalen Regeln. Er prüft
+vor dem Anlegen, ob der Zielpfad fehlt, leer ist oder bereits eindeutig zur
+App gehört.
+
+[MUST_NOT] Ein vorhandener, nicht eindeutig zur App gehörender Zielordner darf
+nicht überschrieben oder als Projekt übernommen werden. Der Agent stoppt und
+klärt den Zielpfad.
+
+[MUST] Die führende lokale App und ihr Repository werden im kanonischen
+Basisordner initialisiert. Zusätzliche Worktrees dürfen getrennt angelegt
+werden, wenn der Basisordner erhalten und eindeutig zugeordnet bleibt.
+
 [MUST] Der Agent muss zuerst klären, was die Anwendung für den Nutzer leisten soll, wer sie nutzt und welcher Hauptworkflow auf dem ersten nutzbaren Stand funktionieren muss.
 
 [MUST] Die erste Version muss einen realen Kernworkflow abbilden. Eine reine Landingpage, Platzhalter-App oder dekorative Demo ist nicht ausreichend, wenn der Nutzer eine Applikation verlangt.
@@ -61,6 +75,7 @@ angewendet werden.
 
 [MUST] Die `PROJECT.md` muss mindestens beschreiben:
 
+- stabilen App-Namen und kanonischen lokalen Basisordner.
 - Produktziel, Zielgruppe, Scope und bewusste Nicht-Ziele.
 - fachliche Source of Truth und verbindliche Produktregeln.
 - Architektur, Technologieentscheidungen, unterstützte Plattformen und
@@ -262,6 +277,8 @@ theoretischen Beschreibung als verifiziert gelten.
 
 [MUST] Vor Übergabe muss der Agent mindestens prüfen:
 
+- der kanonische Basisordner existiert und gehört eindeutig zur erwarteten App
+  beziehungsweise zum erwarteten Repository.
 - App startet lokal oder die Blockade ist dokumentiert.
 - Build läuft oder die Blockade ist dokumentiert.
 - zentrale Tests oder Smoke Checks laufen oder sind bewusst als offen dokumentiert.

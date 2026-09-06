@@ -229,8 +229,27 @@ Applikation überführt wird, muss der Agent den Workflow
 [Neue Applikation erstellen](https://bastivonnijodex.github.io/agents/workflows/new-application.md)
 lesen und anwenden.
 
-[SHOULD] Projekte liegen auf dem Rechner des Nutzers unter
-`~/vibecoding/<projektname>`.
+[MUST] Jedes App-Projekt muss auf dem lokalen Rechner des Nutzers einen
+kanonischen Basisordner unter
+`/Users/bastimeissner/vibecoding/<appname>` besitzen. `<appname>` ist ein
+kurzer, stabiler Bezeichner in Kleinbuchstaben und bei Bedarf mit Bindestrichen.
+
+[MUST] Der kanonische Basisordner enthält den eindeutig zugeordneten lokalen
+Repository-Checkout oder, wenn das Projekt noch kein Repository besitzt, den
+führenden lokalen Projektstand. Zusätzliche Worktrees oder temporäre
+Arbeitskopien dürfen an anderen geeigneten Orten liegen, ersetzen diesen
+Basisordner aber nicht.
+
+[MUST_IF] Ein Agent eine App neu anlegt oder zustandsverändernd an ihr arbeitet,
+muss er den kanonischen Basisordner vorher identifizieren und auf die erwartete
+Projekt- beziehungsweise Repository-Identität prüfen. Fehlt der Ordner, muss er
+im bestätigten Scope sicher angelegt oder aus der belegten Quelle ausgecheckt
+werden.
+
+[MUST_NOT] Ein bestehender Pfad unter `/Users/bastimeissner/vibecoding/` darf
+nicht ungeprüft überschrieben, umgewidmet oder gelöscht werden. Passt sein
+Inhalt nicht zur erwarteten App- oder Repository-Identität, muss der Agent vor
+einer Änderung stoppen.
 
 ## Sicherheit und Datenschutz
 

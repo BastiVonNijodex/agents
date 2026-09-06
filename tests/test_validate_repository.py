@@ -14,6 +14,7 @@ from validate_repository import (  # noqa: E402
     validate_markers,
     validate_reachability,
     validate_repository,
+    validate_templates,
 )
 
 
@@ -52,6 +53,22 @@ class RepositoryValidatorTests(unittest.TestCase):
             errors = validate_reachability(root)
 
             self.assertTrue(any("orphan.md" in error for error in errors))
+
+    def test_project_template_requires_canonical_app_path(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            templates = root / "templates"
+            templates.mkdir()
+            (templates / "PROJECT.md").write_text(
+                "## Lokaler Projektpfad\n\nApp-Name: `<appname>`\n",
+                encoding="utf-8",
+            )
+
+            errors = validate_templates(root)
+
+            self.assertTrue(
+                any("/Users/bastimeissner/vibecoding/<appname>" in error for error in errors)
+            )
 
 
 if __name__ == "__main__":
