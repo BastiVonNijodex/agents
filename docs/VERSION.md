@@ -2,13 +2,16 @@
 
 Deklarierte Version: `1.0.0`
 
-Diese Datei deklariert die Version des nächsten Regel-Releases. Eine Version
-gilt erst als veröffentlicht, wenn ein passender annotierter Git-Tag
-`v1.0.0` und ein GitHub Release auf denselben geprüften Commit verweisen.
+Veröffentlicht am: `2026-09-06`
 
-Solange diese Release-Artefakte fehlen, ist der Stand ein Release-Kandidat und
-muss in konsumierenden Projekten als `unveröffentlicht` mit vollständigem
-Commit-SHA referenziert werden.
+Diese Datei deklariert die aktuelle veröffentlichte Regelversion. Der
+unveränderliche Release-Nachweis besteht aus dem annotierten Git-Tag `v1.0.0`,
+dem [GitHub Release](https://github.com/BastiVonNijodex/agents/releases/tag/v1.0.0)
+und dem vollständigen Commit-SHA, auf den beide verweisen.
+
+Konsumierende Projekte übernehmen diesen Stand kontrolliert nach
+`VERSIONING.md` und fixieren zusätzlich den vollständigen Release-Commit sowie
+die dazu passende unveränderliche Raw-URL.
 
 Siehe [Versionierung und Migration](https://bastivonnijodex.github.io/agents/VERSIONING.md)
 und [Changelog](https://bastivonnijodex.github.io/agents/CHANGELOG.md).

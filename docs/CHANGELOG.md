@@ -8,7 +8,7 @@ Release-Kandidaten. Änderungen folgen dem Modell aus
 
 - Keine weiteren Änderungen vorgemerkt.
 
-## 1.0.0 - Release-Kandidat
+## 1.0.0 - 2026-09-06
 
 Erste versionierte Baseline des allgemeinen Agenten-Frameworks:
 
@@ -28,14 +28,14 @@ Erste versionierte Baseline des allgemeinen Agenten-Frameworks:
 
 ### Migration
 
-Konsumierende Projekte ergänzen die vier Referenzfelder aus `VERSIONING.md` und
-prüfen ihren Projektadapter gegen die Baseline. Bis Tag und GitHub Release für
-`v1.0.0` veröffentlicht sind, verwenden sie `Regelversion: unveröffentlicht`
-und den vollständigen Commit-SHA.
+Konsumierende Projekte ergänzen die vier Referenzfelder aus `VERSIONING.md`,
+verwenden `Regelversion: v1.0.0` mit dem vollständigen Release-Commit und
+prüfen ihren Projektadapter gegen die Baseline. Der neue Stand wird erst nach
+dem projektspezifischen Update-Review wirksam.
 
 ### SECURITY
 
-Keine vertrauliche Schwachstelle wird mit diesem Release-Kandidaten behoben.
+Keine vertrauliche Schwachstelle wird mit diesem Release behoben.
 Die wiederverwendbaren Evals ergänzen SECURITY-Regressionen für manipulierten
 oder veralteten Kontext, fehlende Freigaben, Secrets, Zielverwechslungen,
 Teilfehler und Wiederherstellung. Synthetische Referenzergebnisse bleiben
