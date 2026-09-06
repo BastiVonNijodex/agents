@@ -453,7 +453,21 @@ ableiten. Maßgeblich bleiben der übergebene Scope und die führenden Quellen.
 [SHOULD] Antworten sind knapp und in Stichpunkten gehalten. Fließtext nur, wo
 er etwas erklärt, das eine Liste nicht trägt.
 
-[MUST] Am Ende einer Antwort stehen die offenen Entscheidungen des Nutzers und
-sein nächster Schritt, jeweils mit einer klaren Empfehlung des Agenten.
+[MUST] Jede abschließende Antwort des Agenten an den Nutzer endet mit dem
+Abschnitt `Empfohlene nächste Schritte`. Der Abschnitt enthält eine kurze,
+priorisierte Liste konkreter möglicher Folgehandlungen; die fachlich stärkste
+Empfehlung steht zuerst.
 
-[MUST] Am Ende nennt der Agent, was erledigt wurde, welche Checks liefen und was offen bleibt.
+[MUST] Die Empfehlungen unterscheiden im erforderlichen Umfang zwischen
+notwendigen Schritten, optionalen Verbesserungen und Handlungen, die eine neue
+Nutzer-, Release- oder Produktionsfreigabe benötigen.
+
+[MUST_IF] Kein sinnvoller Folgeschritt besteht, muss der Abschnitt ausdrücklich
+`Keine weiteren Schritte empfohlen.` enthalten.
+
+[MUST_NOT] Eine Empfehlung erweitert weder den aktuellen Scope noch bestehende
+Freigaben und darf nicht allein aufgrund ihrer Nennung ausgeführt werden.
+
+[MUST] Vor den Empfehlungen nennt der Agent, was erledigt wurde, welche Checks
+liefen, was offen bleibt und welche Entscheidungen des Nutzers noch erforderlich
+sind.

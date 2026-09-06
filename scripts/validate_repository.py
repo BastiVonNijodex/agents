@@ -55,6 +55,12 @@ REQUIRED_TEMPLATE_HEADINGS = {
     "## Lokaler Projektpfad",
     "## Verbotene Aktionen",
 }
+REQUIRED_GLOBAL_POLICY_TEXT = {
+    "Jede abschließende Antwort des Agenten an den Nutzer endet mit dem",
+    "Empfohlene nächste Schritte",
+    "Keine weiteren Schritte empfohlen.",
+    "Eine Empfehlung erweitert weder den aktuellen Scope noch bestehende",
+}
 
 MARKDOWN_LINK_RE = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 PAGES_URL_RE = re.compile(re.escape(PAGES_BASE) + r"[^\s)>\"]+")
@@ -210,6 +216,18 @@ def validate_templates(root: Path) -> list[str]:
     return errors
 
 
+def validate_global_policy(root: Path) -> list[str]:
+    agents_file = root / "docs/AGENTS.md"
+    if not agents_file.is_file():
+        return []
+    text = agents_file.read_text(encoding="utf-8")
+    return [
+        f"docs/AGENTS.md: erforderliche globale Regel fehlt: {required}"
+        for required in sorted(REQUIRED_GLOBAL_POLICY_TEXT)
+        if required not in text
+    ]
+
+
 def validate_declared_version(root: Path) -> list[str]:
     version_file = root / "docs/VERSION.md"
     changelog = root / "docs/CHANGELOG.md"
@@ -289,6 +307,7 @@ def validate_repository(root: Path) -> list[str]:
     errors.extend(validate_links(root, files))
     errors.extend(validate_reachability(root))
     errors.extend(validate_templates(root))
+    errors.extend(validate_global_policy(root))
     errors.extend(validate_declared_version(root))
     return sorted(set(errors))
 
