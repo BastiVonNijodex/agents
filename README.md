@@ -64,3 +64,17 @@ verpflichtend:
 Änderungen an veröffentlichten Regeln erfolgen direkt unter `docs/`.
 
 Änderungen sollten klein, nachvollziehbar und versioniert erfolgen, weil konsumierende Repositories auf die veröffentlichten URLs verweisen können.
+
+## Lokale Prüfung
+
+Der Repository-Validator prüft interne Markdown-Ziele, die Erreichbarkeit aller
+veröffentlichten Dokumente, Regelmarker und zentrale Bestandteile der Vorlagen:
+
+```sh
+python3 scripts/validate_repository.py
+python3 -m unittest discover -s tests -v
+git diff --check
+```
+
+Dies sind strukturelle Prüfungen. Die inhaltliche Bewertung von Regeländerungen
+und ihren Auswirkungen bleibt zusätzlich erforderlich.
