@@ -15,6 +15,7 @@ Weitere Einstiegspunkte:
 - [Aktuelle Regelversion](https://bastivonnijodex.github.io/agents/VERSION.md)
 - [Versionierung und Migration](https://bastivonnijodex.github.io/agents/VERSIONING.md)
 - [Changelog](https://bastivonnijodex.github.io/agents/CHANGELOG.md)
+- [Harness-Evals](https://bastivonnijodex.github.io/agents/EVALS.md)
 - [ROLES.md](https://bastivonnijodex.github.io/agents/roles/ROLES.md)
 - [Product Owner](https://bastivonnijodex.github.io/agents/roles/product-owner.md)
 - [Security Reviewer](https://bastivonnijodex.github.io/agents/roles/security-reviewer.md)
@@ -56,6 +57,7 @@ verpflichtend:
 | `docs/VERSION.md` | Deklarierte nächste beziehungsweise aktuelle Regelversion. |
 | `docs/VERSIONING.md` | SemVer-, Referenz-, Kompatibilitäts- und Migrationsmodell. |
 | `docs/CHANGELOG.md` | Release-Kandidaten, veröffentlichte Regelstände und Migrationshinweise. |
+| `docs/EVALS.md` | Wiederverwendbare Harness-Evals und gemeinsames Ergebnisformat. |
 | `docs/roles/ROLES.md` | Rollen-Lookup. |
 | `docs/roles/product-owner.md` | Produktübergreifende Product-Owner-Verantwortung. |
 | `docs/roles/security-reviewer.md` | Unabhängige adversariale Prüfung sicherheitsrelevanter Änderungen. |
@@ -67,6 +69,8 @@ verpflichtend:
 | `docs/workflows/product-concept.md` | Produktübergreifender Lebenszyklus für Produktkonzepte. |
 | `docs/workflows/new-application.md` | Mindeststandard für neue Applikationen. |
 | `docs/workflows/release.md` | Globale Release-Disziplin. |
+| `evals/` | Maschinenlesbare Profile, Fälle und synthetische Referenzergebnisse. |
+| `scripts/evaluate_harness.py` | Deterministischer Harness-Eval-Runner. |
 | `templates/` | Kopiervorlagen für andere Repositories. |
 
 ## Pflege
@@ -83,6 +87,7 @@ veröffentlichten Dokumente, Regelmarker und zentrale Bestandteile der Vorlagen:
 ```sh
 python3 scripts/validate_repository.py
 python3 -m unittest discover -s tests -v
+python3 scripts/evaluate_harness.py --results evals/reference-results.json --profile general --profile coding --profile production
 git diff --check
 ```
 
@@ -93,5 +98,6 @@ geprüft werden:
 python3 scripts/validate_repository.py --project-reference /pfad/zur/PROJECT.md
 ```
 
-Dies sind strukturelle Prüfungen. Die inhaltliche Bewertung von Regeländerungen
-und ihren Auswirkungen bleibt zusätzlich erforderlich.
+Der synthetische Referenzlauf prueft Struktur und Oracle-Vergleich, aber nicht
+die Eignung eines realen Harnesses. Die inhaltliche Bewertung von Kontrollen,
+Evidenz und Regelwirkungen bleibt zusätzlich erforderlich.

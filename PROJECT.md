@@ -124,10 +124,11 @@ Arbeitsnachweis. Sie enthalten im erforderlichen Umfang Scope, Entscheidungen,
 bestehen. Regeländerungen werden zusätzlich inhaltlich gegen betroffene Rollen,
 Workflows, Vorlagen und konsumierende Projektadapter geprüft.
 
-[MUST] Der Validator erzwingt nur strukturelle Kontrollen. Eine vollständige
-semantische Harness-Eval-Suite ist noch nicht vorhanden und wird in GitHub
-Issue #16 nachgeführt; bis dahin bleibt die inhaltliche Prüfung eine
-dokumentierte Review-Kontrolle.
+[MUST] Der Validator erzwingt strukturelle Kontrollen. Die allgemeine
+Harness-Eval-Suite aus `docs/EVALS.md` prueft zusaetzlich den gemeinsamen
+Fallkatalog und das Ergebnisformat. Ihr synthetischer Referenzlauf ersetzt
+weder eine projektspezifische Harness-Ausfuehrung noch die inhaltliche Pruefung
+von Kontrollmatrix und Evidenz.
 
 [MUST] Ein Agent stoppt vor der betroffenen Handlung bei unklarem Scope,
 widersprüchlichem Regelstand, fremden nicht sicher abgrenzbaren Änderungen,
@@ -152,6 +153,7 @@ erfolgreich laufen:
 ```sh
 python3 scripts/validate_repository.py
 python3 -m unittest discover -s tests -v
+python3 scripts/evaluate_harness.py --results evals/reference-results.json --profile general --profile coding --profile production
 git diff --check
 ```
 
@@ -203,6 +205,7 @@ freigegebenen externen Schritte wahrheitsgemäß nachgewiesen sind.
 Wichtige URLs:
 
 - https://bastivonnijodex.github.io/agents/AGENTS.md
+- https://bastivonnijodex.github.io/agents/EVALS.md
 - https://bastivonnijodex.github.io/agents/roles/ROLES.md
 - https://bastivonnijodex.github.io/agents/roles/product-owner.md
 - https://bastivonnijodex.github.io/agents/roles/security-reviewer.md

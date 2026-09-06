@@ -29,3 +29,6 @@ jobs:
 
       - name: Validator testen
         run: python3 -m unittest discover -s tests -v
+
+      - name: Synthetische Harness-Evals ausführen
+        run: python3 scripts/evaluate_harness.py --results evals/reference-results.json --profile general --profile coding --profile production

@@ -20,6 +20,8 @@ Erste versionierte Baseline des allgemeinen Agenten-Frameworks:
 - verbindlicher kanonischer App-Basisordner unter
   `/Users/bastimeissner/vibecoding/<appname>`,
 - Repository-Selbstanwendung, struktureller Validator und GitHub-CI sowie
+- wiederverwendbare, maschinenlesbare Harness-Evals mit allgemeiner Baseline,
+  additiven Coding- und Produktionsprofilen und synthetischem Referenzlauf,
 - SemVer-, Commit-SHA-, SECURITY- und Migrationsmodell sowie
 - verbindliche priorisierte Empfehlungen für nächste Schritte am Ende jeder
   Agentenantwort.
@@ -34,3 +36,7 @@ und den vollständigen Commit-SHA.
 ### SECURITY
 
 Keine vertrauliche Schwachstelle wird mit diesem Release-Kandidaten behoben.
+Die wiederverwendbaren Evals ergänzen SECURITY-Regressionen für manipulierten
+oder veralteten Kontext, fehlende Freigaben, Secrets, Zielverwechslungen,
+Teilfehler und Wiederherstellung. Synthetische Referenzergebnisse bleiben
+ausdrücklich von realer Eignungs- und Produktionsevidenz getrennt.
