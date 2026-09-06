@@ -168,6 +168,14 @@ nicht geheimen Merkmale der Zielidentität wie Umgebung, Host oder IP-Adresse
 und den vorgesehenen Benutzer enthalten. Projektspezifische Ziele gehören
 nicht in die globalen Agentenregeln.
 
+[MUST_IF] Für eine produktive Umgebung ein SSH-Zugang eingerichtet wird, muss
+der lokale Alias grundsätzlich dem Schema `<appname>-prod` folgen. Der
+App-Name wird dafür als kurzer, stabiler Bezeichner in Kleinbuchstaben und bei
+Bedarf mit Bindestrichen geschrieben. Der dokumentierte Standardaufruf lautet
+`ssh <appname>-prod`. Eine abweichende bestehende Konvention darf nur
+beibehalten werden, wenn sie in der projektspezifischen Dokumentation eindeutig
+belegt ist.
+
 [SHOULD] Für produktive Umgebungen wird ein eigener, passphrasegeschützter
 Schlüssel je Projekt oder Vertrauensbereich verwendet. Private Schlüssel und
 Passphrasen bleiben im lokalen SSH-Verzeichnis beziehungsweise im
