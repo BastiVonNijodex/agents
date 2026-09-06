@@ -2,291 +2,227 @@
 
 ## Ziel
 
-Dieser Workflow definiert einen produkt- und technologieunabhängigen Standard,
-um eine Laufzeitumgebung für Agenten auszuwählen, einzuführen, zu konfigurieren,
-wesentlich zu ändern oder auf ihre Eignung zu prüfen.
+Dieser Workflow operationalisiert die allgemeinen Harness-Regeln aus
+[AGENTS.md](https://bastivonnijodex.github.io/agents/AGENTS.md). Er führt zu
+einer belegten Entscheidung, ob eine technische und organisatorische
+Laufzeitumgebung für Agenten in einem bestimmten Projekt und Einsatzzweck
+geeignet ist.
 
-Er bewertet nicht nur Modell und Prompt, sondern das gesamte Harness aus
-Kontext, Regeln, Werkzeugen, Berechtigungen, Zustand, Delegation,
-Schutzkontrollen und Nachweisen.
+Bewertet wird das gesamte Harness aus Kontext, Regeln, Werkzeugen,
+Berechtigungen, Zustand, Delegation, Schutzkontrollen und Nachweisen, nicht nur
+ein Modell oder Prompt.
 
 ## Verwenden
 
-[MUST_IF] Ein Agenten-Harness ausgewählt, eingeführt, konfiguriert, wesentlich
-geändert oder auf seine Eignung für einen Anwendungsfall geprüft wird, muss der
-Agent diesen Workflow anwenden.
+Die verbindliche Aktivierung dieses Workflows ergibt sich aus
+[AGENTS.md](https://bastivonnijodex.github.io/agents/AGENTS.md) und dem
+[Workflow-Lookup](https://bastivonnijodex.github.io/agents/workflows/WORKFLOWS.md).
+Nach der Aktivierung werden die folgenden Schritte für den betroffenen
+Harness-Scope ausgeführt.
 
 [MUST_IF] Eine bestehende Agentenumgebung neue Werkzeuge, Datenquellen,
 Berechtigungen, Memory-Funktionen, Delegationswege oder extern wirksame
-Handlungen erhält, muss ihre betroffene Harness-Ausgestaltung erneut geprüft
-werden.
+Handlungen erhält, müssen mindestens die betroffenen Schritte dieses Workflows
+erneut ausgeführt werden.
 
 [MUST_NOT] Eine gewöhnliche Aufgabe innerhalb eines bereits projektspezifisch
-belegten Harnesses löst diesen vollständigen Bewertungsworkflow allein durch
-die Nutzung des Agenten aus. Die laufenden Regeln aus
-[AGENTS.md](https://bastivonnijodex.github.io/agents/AGENTS.md) gelten dennoch.
+belegten Harnesses löst allein durch die Nutzung des Agenten keine vollständige
+Neubewertung aus.
 
 ## Abgrenzung
 
-[MUST] Dieser Workflow beschreibt erforderliche Eigenschaften und Nachweise,
-aber schreibt kein konkretes Agentenprodukt, Modell, Provider-, CI-, Memory-,
-Tool- oder Orchestrierungssystem vor.
+[MUST] Dieser Workflow beschreibt Prüfschritte und Ergebnisnachweise. Die
+verbindlichen Harness-Invarianten stehen in
+[AGENTS.md](https://bastivonnijodex.github.io/agents/AGENTS.md) und werden hier
+nicht erneut definiert.
 
-[MUST] Projektspezifische Auswahl, Konfiguration und Betriebsgrenzen werden in
-`PROJECT.md` oder der dort bestimmten führenden Dokumentation festgelegt.
+[MUST] Projektspezifische Auswahl, technische Kontrollen und Betriebsgrenzen
+werden in `PROJECT.md` oder der dort bestimmten führenden Dokumentation
+festgelegt.
 
-[MUST_IF] Das Harness oder sein Einsatz wesentliche offene Produkt-, Daten-,
-Provider-, Security- oder Betriebsentscheidungen erzeugt, muss vor der
-Einführung zusätzlich der Workflow
+[MUST_IF] Wesentliche offene Produkt-, Daten-, Provider-, Security- oder
+Betriebsentscheidungen entstehen, muss vor der Einführung zusätzlich der
+Workflow
 [Produktkonzept erstellen und entscheiden](https://bastivonnijodex.github.io/agents/workflows/product-concept.md)
 angewendet werden.
 
 ## 1. Einsatz und Risikoklasse bestimmen
 
-[MUST] Die Bewertung benennt mindestens:
+[MUST] Die Bewertung hält fest:
 
-- Zweck, Nutzer und erwartete Ergebnisse des Agenteneinsatzes,
+- Zweck, Nutzer und erwartete Ergebnisse,
 - betroffene Produkte, Repositorien, Daten, Systeme und Umgebungen,
 - führende menschliche Verantwortung,
-- erlaubte und ausdrücklich ausgeschlossene Handlungen,
-- mögliche externe, irreversible, sicherheits- oder datenschutzrelevante
-  Wirkungen sowie
-- benötigte menschliche Entscheidungen und Kontrollen.
+- erlaubte und ausdrücklich ausgeschlossene Wirkungen,
+- nach [AGENTS.md](https://bastivonnijodex.github.io/agents/AGENTS.md)
+  aktivierte Risikospezialisierungen sowie
+- zusätzlich anzuwendende Rollen und Workflows.
 
-[MUST_IF] Agenten Code, Konfiguration, Schema, Abhängigkeiten oder
-Repository-Zustand verändern, muss der Einsatz als risikoreiche
-Coding-Spezialisierung behandelt werden.
+[ALLOW_IF] Die Prüftiefe darf für einen rein lesenden und reversiblen Einsatz
+reduziert werden, wenn weder sensible oder personenbezogene Daten noch
+produktive Systeme, produktive Daten, Secrets, externe Kommunikation oder
+wesentliche Kosten betroffen sind.
 
-[MUST_IF] Agenten produktive Systeme, reale Nutzer, produktive Daten,
-Deployments, Migrationen, Secrets, Zahlungen oder externe Kommunikation
-beeinflussen, muss der Einsatz als besonders risikoreiche
-Produktionsspezialisierung behandelt werden.
+## 2. Tatsächliches Harness erfassen
 
-[ALLOW_IF] Ein rein lesender und reversibler Einsatz darf mit geringerer
-Prüftiefe bewertet werden, wenn seine Daten-, Kosten- und Außenwirkung
-nachweislich begrenzt ist.
+[MUST] Die Bestandsaufnahme erfasst im erforderlichen Umfang:
 
-## 2. Harness und Vertrauensgrenzen erfassen
-
-[MUST] Die tatsächliche Laufzeitumgebung muss im erforderlichen Umfang erfasst
-werden. Dazu gehören:
-
-- Agenten, Modelle und verantwortliche Menschen,
+- beteiligte Agenten, Modelle und verantwortliche Menschen,
 - System-, Nutzer-, Repository- und Projektanweisungen,
 - Daten-, Wissens- und Memory-Quellen,
 - Werkzeuge, Schnittstellen und ausführbare Kommandos,
 - Berechtigungen, Bestätigungen und technische Zugriffsmöglichkeiten,
 - Delegation an weitere Agenten oder Prozesse,
-- persistenter und temporärer Zustand,
+- persistenten und temporären Zustand,
 - externe Anbieter und Vertrauensgrenzen sowie
 - Protokoll-, Prüf- und Wiederaufnahmemöglichkeiten.
 
-[MUST] Verfügbarkeit, Berechtigung und fachliche Freigabe müssen als getrennte
-Kontrollen betrachtet werden.
+[MUST] Die Bestandsaufnahme unterscheidet belegte Eigenschaften, konfigurierte
+Kontrollen, bloße Annahmen und noch nicht geprüfte Bereiche.
 
-[MUST_NOT] Nicht belegte Fähigkeiten, Schutzkontrollen oder Grenzen dürfen
-nicht aus Produktnamen, Marketingangaben oder erwarteten Defaults abgeleitet
-werden.
+## 3. Regel- und Kontrollmatrix erstellen
 
-## 3. Kontext- und Regelvertrag prüfen
+[MUST] Für jede relevante Harness-Invariante aus
+[AGENTS.md](https://bastivonnijodex.github.io/agents/AGENTS.md) wird eine Matrix
+mit mindestens diesen Feldern erstellt:
 
-[MUST] Das Harness muss die für einen Task erforderlichen globalen,
-projektspezifischen und direkten Anweisungen laden oder deren Fehlen vor einer
-betroffenen Handlung erkennbar machen.
+| Feld | Inhalt |
+|---|---|
+| Anforderung | Verweis auf die konkrete globale oder projektspezifische Regel |
+| technische Kontrolle | belegter Mechanismus oder `nicht technisch erzwungen` |
+| organisatorische Kontrolle | erforderliche menschliche oder prozessuale Handlung |
+| Evidenz | Konfiguration, Test, Protokoll oder anderer prüfbarer Nachweis |
+| Lücke | fehlende oder nur teilweise erfüllte Kontrolle |
+| Wirkung | betroffener Einsatz und mögliches Risiko |
 
-[MUST] Für den wirksamen Kontext muss nachvollziehbar sein, aus welcher Quelle
-er stammt, in welchem Scope er gilt und anhand welchen Stands seine Aktualität
-beurteilt wurde.
+[MUST] Die Matrix deckt mindestens die für den Einsatz relevanten Bereiche
+Kontext, Freigaben, Werkzeuge, Zustand und Memory, Delegation,
+Beobachtbarkeit, sicheres Fehlerverhalten sowie Regel- und
+Konfigurationsstände ab.
 
-[MUST] Externe Inhalte, Tool-Ausgaben, Webseiten, Anhänge und gespeicherte
-Erinnerungen müssen von verbindlichen Anweisungen unterscheidbar bleiben.
+## 4. Kontext-, Memory- und Datenflüsse abbilden
 
-[MUST_IF] Quellen fehlen, widersprüchlich, unvollständig oder erkennbar
-veraltet sind, muss das Harness beziehungsweise der Agent vor der davon
-betroffenen riskanten Handlung stoppen oder die führende Quelle erneut prüfen.
+[MUST] Jede relevante Kontext-, Daten- oder Memory-Quelle wird mit folgenden
+Angaben abgebildet:
 
-## 4. Werkzeuge, Berechtigungen und Freigaben prüfen
+- Herkunft und verantwortliche Stelle,
+- Datenklasse und mögliche Schutzbedürftigkeit,
+- Geltungsbereich nach Nutzer, Projekt, Task und Umgebung,
+- Aktualitäts- und Konfliktprüfung,
+- Lese-, Schreib-, Übertragungs- und Löschpfade,
+- Aufbewahrung und Korrekturmöglichkeit sowie
+- beteiligte externe Systeme oder Provider.
 
-[MUST] Werkzeuge und Berechtigungen werden nach dem geringsten für den
-bestätigten Zweck erforderlichen Zugriff gestaltet.
+[MUST] Die Bewertung weist ausdrücklich nach, wie die globalen Verbote und
+Datenschutzanforderungen für Secrets und personenbezogene Daten technisch oder
+organisatorisch erfüllt werden.
 
-[MUST] Lesezugriffe, lokale oder reversible Änderungen und extern wirksame
-oder irreversible Handlungen müssen in Freigabelogik und Nachweis
-unterscheidbar sein.
+## 5. Aktions- und Freigabematrix erstellen
 
-[MUST] Ziel, Parameter und erwartete Wirkung einer riskanten Handlung müssen
-vor ihrer Ausführung gegen Task-Scope und Projektregeln validiert werden.
+[MUST] Für jede relevante Werkzeug- oder Aktionsklasse wird dokumentiert:
 
-[MUST_NOT] Ein erfolgreicher technischer Zugriff, eine Plattformbestätigung
-oder eine frühere Freigabe darf als neue fachliche Autorisierung behandelt
-werden.
+- technische Zugriffsmöglichkeit und tatsächliche Berechtigung,
+- erforderliche fachliche Freigabe,
+- Ziel- und Parameterprüfung,
+- Reversibilität und mögliche Außenwirkung,
+- erzeugter Nachweis sowie
+- Stop- und Eskalationsbedingung.
 
-[MUST_IF] Eine erforderliche Bestätigung, Zielidentität oder Schutzkontrolle
-fehlt, muss die betroffene Handlung sicher unterbleiben.
+[MUST] Fehlende Trennung oder technische Erzwingung wird als Lücke und nicht
+als erfüllte Kontrolle bewertet.
 
-## 5. Zustand und Memory prüfen
+## 6. Delegations- und Nachweismodell prüfen
 
-[MUST] Für persistenten oder taskübergreifenden Zustand müssen Zweck,
-Herkunft, Geltungsbereich, zulässige Inhalte, Aktualitätsprüfung und
-Lösch- beziehungsweise Korrekturweg bestimmt sein.
+[MUST_IF] Delegation vorgesehen ist, beschreibt die Bewertung für jeden
+Delegationsweg:
 
-[MUST] Aus Memory übernommene Fakten müssen als solche erkennbar bleiben und
-risikoproportional gegen aktuelle führende Quellen geprüft werden.
+- übergebenes Teilziel und Ergebnisformat,
+- übertragene Quellen, Grenzen und Stop-Bedingungen,
+- technische und fachliche Berechtigungen,
+- erforderliche Unabhängigkeit oder Rollentrennung,
+- Integration und Verifikation des Teilergebnisses sowie
+- Verhalten bei Widerspruch, fehlender Evidenz oder Teilfehler.
 
-[MUST_NOT] Secrets, unnötige personenbezogene Daten, unbestätigte Annahmen oder
-taskgebundene Freigaben dürfen nicht als dauerhaft gültige Grundlage für
-spätere Tasks verwendet werden.
+[MUST] Das Nachweismodell benennt Speicherort, Aufbewahrung, Zugriff,
+Redaktion sensibler Inhalte und die für Prüfung oder Wiederaufnahme benötigten
+Aktions-, Entscheidungs-, Fehler- und Testergebnisse.
 
-[MUST_IF] Ein Zustand nicht eindeutig dem aktuellen Nutzer, Projekt, Task oder
-Ziel zugeordnet werden kann, darf er nicht für eine riskante Handlung verwendet
-werden.
+## 7. Eval- und Fehlerfallplan erstellen
 
-## 6. Delegation und Rollentrennung prüfen
+[MUST] Der Eval-Plan leitet seine Fälle aus Einsatz, Vertrauensgrenzen,
+Kontrollmatrix und aktivierten Risikospezialisierungen ab.
 
-[MUST_IF] Das Harness Arbeit an weitere Agenten oder Prozesse delegiert,
-müssen Teilziel, Scope, Quellen, erlaubte Handlungen, Stop-Bedingungen und
-erwarteter Ergebnisnachweis übertragen werden.
+Er enthält im erforderlichen Umfang:
 
-[MUST] Der koordinierende Agent bleibt dafür verantwortlich, Teilergebnisse
-gegen den gemeinsamen Scope zu integrieren und Widersprüche oder fehlende
-Evidenz zu erkennen.
+- erwartete Erfolgsfälle,
+- verweigerte oder fehlende Freigaben,
+- falsche, unvollständige und veraltete Kontextquellen,
+- widersprüchliche oder manipulierte Anweisungen,
+- unzulässige Ziele, Parameter und Berechtigungsüberschreitungen,
+- unerlaubte Speicherung und taskübergreifenden Abruf sensibler Inhalte,
+- Delegations-, Replay-, Race- und Teilfehlerszenarien,
+- Abbruch, Wiederaufnahme und Wiederherstellung sowie
+- Regressionen nach wesentlichen Harness- oder Regeländerungen.
 
-[MUST_NOT] Ein delegierter Agent darf zusätzliche Rechte oder eine breitere
-Freigabe allein aus seiner Rolle, technischen Fähigkeit oder dem Auftrag eines
-anderen Agenten ableiten.
+[MUST] Jeder erforderliche Fall erhält erwartetes Verhalten, Testweg,
+Ergebnisnachweis und eine Einordnung fehlender Prüfbarkeit.
 
-[MUST_IF] Kritische oder hohe Risiken eine unabhängige Prüfung verlangen, muss
-die projektspezifisch erforderliche personelle oder agentische Trennung
-nachweisbar sein.
+## 8. Regel- und Konfigurationsstand belegen
 
-## 7. Nachweise und Beobachtbarkeit bestimmen
+[MUST] Die Bewertung dokumentiert:
 
-[MUST] Der erforderliche Nachweis muss risikoproportional mindestens erkennen
-lassen:
+- den wirksamen Regel- und Harness-Konfigurationsstand,
+- den projektspezifischen Update-Modus,
+- verantwortliche Freigabe- und Änderungsinstanzen,
+- Kompatibilitäts- und Migrationsfolgen,
+- erneut auszuführende Evals sowie
+- den Umgang mit sicherheitsrelevanten Aktualisierungen.
 
-- Task, Scope und wirksame Regelquellen,
-- relevante Annahmen und Entscheidungen,
-- extern wirksame oder irreversible Handlungen,
-- ausgeführte Checks und ihre Ergebnisse,
-- Fehler, Teilabschlüsse und Stop-Ereignisse,
-- Delegationen und übernommene Ergebnisse sowie
-- verbleibende Risiken und erforderliche Folgeaktionen.
+## 9. Coding-Spezialisierung auswerten
 
-[MUST] Nachweise müssen verständlich, redigiert und für die vorgesehene
-Wiederaufnahme oder Prüfung ausreichend sein.
+[MUST_IF] Die Coding-Spezialisierung nach
+[AGENTS.md](https://bastivonnijodex.github.io/agents/AGENTS.md) aktiviert ist,
+muss die Bewertung zusätzlich die projektspezifischen Nachweise für folgende
+Bereiche zusammenführen:
 
-[MUST_NOT] Vollständige Prompts, vertrauliche Gedankengänge, Secrets oder
-unnötige personenbezogene Daten dürfen allein für Beobachtbarkeit nicht
-gespeichert oder veröffentlicht werden.
-
-## 8. Prüfungen und Evals definieren
-
-[MUST] Vor dem vorgesehenen Einsatz müssen risikoproportionale Prüfungen
-mindestens die relevanten Erfolgs-, Negativ-, Missbrauchs-, Teilfehler- und
-Wiederaufnahmepfade abdecken.
-
-[MUST_IF] Das Harness Regeln oder externe Inhalte verarbeitet, müssen
-Konfliktauflösung, fehlender Kontext, veraltete Quellen und kontextrelevante
-Prompt-Injection- oder Anweisungsmanipulation geprüft werden.
-
-[MUST_IF] Werkzeuge oder Delegation betroffen sind, müssen verweigerte
-Freigaben, unzulässige Ziele, fehlerhafte Parameter, Teilfehler und
-Berechtigungsüberschreitungen geprüft werden.
-
-[MUST_IF] Memory verwendet wird, müssen Scope-Verwechslung, veraltete Fakten,
-unzulässige Inhalte und Löschung beziehungsweise Korrektur geprüft werden.
-
-[MUST] Wesentliche Änderungen an Regeln, Modellen, Werkzeugen,
-Berechtigungen, Memory, Delegation oder Schutzkontrollen erfordern die
-Wiederholung der betroffenen Prüfungen.
-
-[MUST_IF] Ein erforderlicher Check nicht ausführbar ist, müssen fehlender
-Nachweis, Auswirkung und verbleibendes Risiko dokumentiert werden.
-
-## 9. Regel- und Konfigurationsversionierung
-
-[MUST] Für einen Task muss der wirksame Stand wesentlicher Regeln und
-Harness-Konfigurationen anhand einer Version, eines unveränderlichen
-Referenzstands oder eines gleichwertigen Nachweises identifizierbar sein.
-
-[MUST] Das Projekt muss festlegen, ob Regeln und Harness-Konfigurationen
-automatisch dem aktuellen freigegebenen Stand folgen oder kontrolliert auf
-einen bestimmten Stand aktualisiert werden.
-
-[MUST_IF] Eine Änderung Freigabelogik, Berechtigungen, Werkzeuge, Memory,
-Delegation, Nachweise oder Stop-Bedingungen beeinflusst, müssen Auswirkung,
-Kompatibilität, erforderliche Migration und betroffene Evals vor ihrer
-Übernahme geprüft werden.
-
-[MUST_NOT] Eine wesentliche Harness- oder Regeländerung darf für einen
-risikoreichen Einsatz nicht stillschweigend als kompatibel gelten oder ohne die
-erforderlichen Prüfungen ausgerollt werden.
-
-[MUST_IF] Ein Projekt einen Stand bewusst fixiert, muss es zusätzlich
-festlegen, wie sicherheitsrelevante Aktualisierungen erkannt, bewertet und
-kontrolliert übernommen werden.
-
-## 10. Coding-Spezialisierung
-
-[MUST_IF] Coding-Agenten eingesetzt werden, muss der Projektadapter zusätzlich
-festlegen:
-
-- führendes Repository, Projektregeln, Issue und bestätigten Scope,
-- erlaubte Branch-, Worktree-, Datei-, Kommando- und Netzwerkzugriffe,
-- Umgang mit bestehendem und fremdem Arbeitsstand,
-- zulässige Abhängigkeits-, Schema- und Konfigurationsänderungen,
-- erforderliche Tests, Builds, Lints, Reviews und Security-Prüfungen,
-- Grenzen und Freigaben für Commit, Push, Pull Request, Merge und Release sowie
+- führendes Repository, Projektregeln, Issue und bestätigter Scope,
+- Branch-, Worktree-, Datei-, Kommando- und Netzwerkzugriffe,
+- bestehender und fremder Arbeitsstand,
+- Abhängigkeits-, Schema- und Konfigurationsänderungen,
+- Tests, Builds, Lints, Reviews und Security-Prüfungen,
+- Commit, Push, Pull Request, Merge und Release sowie
 - Übergabe, Wiederaufnahme und Definition of Done.
 
-[MUST] Vor Änderungen und extern wirksamen Git-Handlungen muss der tatsächliche
-Arbeitsstand geprüft werden.
+## 10. Produktionsspezialisierung auswerten
 
-[MUST_NOT] Ein Coding-Agent darf fremde Änderungen überschreiben, unbelegte
-Projektkonventionen erfinden oder fehlende Checks als erfolgreich behandeln.
+[MUST_IF] Die Produktionsspezialisierung nach
+[AGENTS.md](https://bastivonnijodex.github.io/agents/AGENTS.md) aktiviert ist,
+muss die Bewertung zusätzlich die projektspezifischen Nachweise für folgende
+Bereiche zusammenführen:
 
-## 11. Produktionsspezialisierung
+- unabhängige Zielidentität und erwartete Sentinel-Merkmale,
+- getrennte Identitäten und produktive Berechtigungen,
+- Produktionspaket und schreibfreier Vorlauf,
+- Secrets und manuell administrierte Konfiguration,
+- Backup, Migration, Teilfehler und Wiederherstellung,
+- Deployment, Health, Smokes, Monitoring und Logs,
+- Abbruch und Rollback sowie
+- menschliche Betriebs- und Risikoentscheidung.
 
-[MUST_IF] Agenten produktive Systeme oder reale Außenwirkung beeinflussen,
-muss der Projektadapter zusätzlich festlegen:
+[MUST] Die Abschlussbewertung übernimmt die strengste Freigabewirkung aus den
+zusätzlich aktivierten Security-, Autopilot- und Release-Regeln.
 
-- unabhängig prüfbare Zielidentität und erwartete Sentinel-Merkmale,
-- getrennte Identitäten und geringstmögliche produktive Berechtigungen,
-- ausdrücklich freizugebendes Produktionspaket,
-- schreibfreien Vorlauf und validierte Parameter,
-- Umgang mit Secrets und manuell administrierter Konfiguration,
-- Backup, Migration, Verhalten bei Teilfehlern und Wiederherstellung,
-- Deployment-, Health-, Smoke-, Monitoring- und Log-Nachweise,
-- Abbruch- und Rollback-Kriterien sowie
-- verantwortliche menschliche Betriebs- und Risikoentscheidung.
+## 11. Projektadapter dokumentieren
 
-[MUST] Die Rollen- und Workflows für Security Review, Autopilot und Release
-müssen zusätzlich angewendet werden, sobald ihre Aktivierungskriterien erfüllt
-sind.
+[MUST] Die belegte Harness-Ausgestaltung wird in `PROJECT.md` oder der dort
+bestimmten führenden Dokumentation festgehalten. Sie muss ohne ursprünglichen
+Chat auf Kontrollmatrix, Evals, offene Lücken, aktivierte
+Risikospezialisierungen und Auslöser einer Neubewertung verweisen oder diese
+Informationen selbst enthalten.
 
-[MUST_NOT] Eine erfolgreiche Entwicklung, ein Merge oder eine technische
-Zugriffsmöglichkeit darf als Produktionsfreigabe ausgelegt werden.
+## 12. Bewertung und Abschluss
 
-## 12. Projektadapter dokumentieren
-
-[MUST] Das Ergebnis der Harness-Ausgestaltung muss in `PROJECT.md` oder der
-dort bestimmten führenden Projektdokumentation so festgehalten werden, dass ein
-anderer Agent ohne ursprünglichen Chat erkennen kann:
-
-- wofür das Harness eingesetzt werden darf,
-- welche Regeln und Konfigurationen wirksam sind,
-- welche Werkzeuge, Zustände und Delegationen erlaubt sind,
-- welche Freigaben und Stop-Bedingungen gelten,
-- welche Nachweise und Evals erforderlich sind,
-- welche risikoreichen Spezialisierungen aktiviert sind und
-- welche Entscheidungen, Risiken oder technischen Kontrollen offen bleiben.
-
-[MUST_NOT] Der Projektadapter darf nicht behaupten, eine organisatorische Regel
-sei technisch erzwungen, wenn dafür kein belegter Kontrollmechanismus besteht.
-
-## 13. Bewertung und Abschluss
-
-Die Bewertung verwendet eine der folgenden Aussagen:
+Die Bewertung verwendet genau eine der folgenden Aussagen:
 
 - `geeignet`: Alle für den vorgesehenen Einsatz erforderlichen Regeln,
   Kontrollen und Nachweise sind belegt.
@@ -299,13 +235,13 @@ Die Bewertung verwendet eine der folgenden Aussagen:
 [MUST] Der Abschluss nennt:
 
 - vorgesehenen Einsatz und Risikoklasse,
-- geprüfte Harness-Komponenten und Vertrauensgrenzen,
+- geprüfte Komponenten und Vertrauensgrenzen,
 - verwendete Quellen und ausgeführte Prüfungen,
 - erfüllte und fehlende Kontrollen,
-- Bewertung mit nachvollziehbarer Begründung,
+- Bewertung mit Begründung,
 - verbleibende Risiken, Verantwortliche und Folgearbeit sowie
 - Auslöser für eine erneute Bewertung.
 
-[MUST_NOT] Ein Harness darf nicht als geeignet bezeichnet werden, wenn für den
-vorgesehenen Einsatz eine zwingende Freigabe, Zielidentität, Schutzkontrolle
-oder erforderliche Prüfevidenz fehlt.
+[MUST_NOT] `geeignet` darf nicht vergeben werden, wenn eine zwingende
+Freigabe, Zielidentität, Schutzkontrolle oder erforderliche Prüfevidenz für den
+vorgesehenen Einsatz fehlt.

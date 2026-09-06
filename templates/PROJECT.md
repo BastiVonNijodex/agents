@@ -68,10 +68,12 @@ Rollen und schwer rückbaubare Technologieentscheidungen.
 Repository- und Toolzugriffe, Arbeitsstandsprüfung, Checks und Grenzen für
 Commit, Push, Review und Merge.
 
-[MUST_IF] Agenten produktive Systeme, reale Nutzer, produktive Daten,
-Deployments, Migrationen, Secrets oder externe Kommunikation beeinflussen,
-beschreibe zusätzlich Zielidentität, Least Privilege, schreibfreien Vorlauf,
-Freigaben, Verifikation, Monitoring, Wiederherstellung und Rollback.
+[MUST_IF] Agenten auf produktive Systeme, reale Nutzer, produktive Daten oder
+Secrets zugreifen, diese lesen, verarbeiten, übertragen, verändern oder
+anderweitig beeinflussen oder Deployments, Migrationen oder externe
+Kommunikation ausführen, beschreibe zusätzlich Zielidentität, Least Privilege,
+schreibfreien Vorlauf, Freigaben, Verifikation, Monitoring,
+Wiederherstellung und Rollback.
 
 [MUST_NOT] Offene Harness-Entscheidungen oder nicht vorhandene technische
 Kontrollen dürfen nicht als umgesetzt oder wirksam dokumentiert werden.

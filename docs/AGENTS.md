@@ -157,6 +157,16 @@ Herkunft, Geltungsbereich und Aktualität einordenbar sein. Erinnerung darf
 weder aktuelle Quellen ersetzen noch frühere Freigaben auf neue Tasks,
 Repositorien, Empfänger oder Umgebungen übertragen.
 
+[MUST_NOT] Secrets, Zugangsdaten oder private Schlüssel dürfen nicht in
+agentengeführtem persistentem oder taskübergreifendem Memory gespeichert
+werden. Dafür vorgesehene Secret Stores gelten nicht als Agenten-Memory und
+unterliegen ihren projektspezifischen Zugriffsregeln.
+
+[MUST_IF] Personenbezogene Daten in persistentem oder taskübergreifendem
+Zustand verarbeitet werden, müssen Zweck, Datenminimierung, Zugriff,
+Aufbewahrung, Löschung und Korrektur projektspezifisch geregelt und geprüft
+werden.
+
 [MUST_IF] Arbeit an weitere Agenten, Prozesse oder Laufzeiten delegiert wird,
 müssen Ziel, Scope, relevante Quellen, erlaubte Handlungen, Stop-Bedingungen und
 erwarteter Ergebnisnachweis ausreichend übertragen werden. Delegation erweitert
@@ -184,12 +194,27 @@ Projekt muss dafür mindestens führende Quellen, zulässige Repository- und
 Toolzugriffe, Arbeitsstandsprüfung, erforderliche Checks sowie Grenzen für
 Commit, Push, Review und Merge bestimmen.
 
-[MUST_IF] Agenten produktive Systeme, reale Nutzer, produktive Daten,
-Deployments, Migrationen, Secrets oder externe Kommunikation beeinflussen,
-gelten sie als besonders risikoreiche Spezialisierung. Zielidentität,
-Least Privilege, schreibfreier Vorlauf, Stop-Bedingungen, Verifikation und
-Wiederherstellung müssen projektspezifisch belegt sein; die einschlägigen
-Security-, Autopilot- und Release-Regeln gelten zusätzlich.
+[MUST_IF] Agenten auf produktive Systeme, reale Nutzer, produktive Daten oder
+Secrets zugreifen, diese lesen, verarbeiten, übertragen, verändern oder
+anderweitig beeinflussen oder Deployments, Migrationen oder externe
+Kommunikation ausführen, gelten sie als besonders risikoreiche Spezialisierung.
+Zielidentität, Least Privilege, schreibfreier Vorlauf, Stop-Bedingungen,
+Verifikation und Wiederherstellung müssen projektspezifisch belegt sein; die
+einschlägigen Security-, Datenschutz-, Autopilot- und Release-Regeln gelten
+zusätzlich.
+
+[MUST] Der für einen Task wirksame Stand wesentlicher Regeln und
+Harness-Konfigurationen muss anhand einer Version, eines unveränderlichen
+Referenzstands oder eines gleichwertigen Nachweises identifizierbar sein.
+
+[MUST_IF] Eine Harness- oder Regeländerung Freigabelogik, Berechtigungen,
+Werkzeuge, Memory, Delegation, Nachweise oder Stop-Bedingungen beeinflusst,
+müssen Auswirkung, Kompatibilität, erforderliche Migration und betroffene
+Prüfungen vor ihrer Übernahme bewertet werden.
+
+[MUST_IF] Ein Projekt Regeln oder Harness-Konfigurationen auf einem bestimmten
+Stand fixiert, muss es festlegen, wie sicherheitsrelevante Aktualisierungen
+erkannt, bewertet und kontrolliert übernommen werden.
 
 [MUST_NOT] Globale Harness-Regeln dürfen konkrete Agentenprodukte, Modelle,
 Provider, Dateinamen, CI-Systeme, Speichertechnologien oder
