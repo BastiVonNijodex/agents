@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Stand: 2026-09-05
+Stand: 2026-09-06
 
 Diese Datei definiert verbindliche Arbeitsregeln für KI- und Code-Agenten.
 
@@ -159,6 +159,34 @@ erforderlichen Umfang prüfen und dokumentieren.
 [MUST] Berechtigungen und Zugriffe werden nach dem Prinzip der geringsten
 erforderlichen Rechte gestaltet, soweit der aktuelle Task sie verändert oder
 neu definiert.
+
+### Lokale SSH-Zugänge
+
+[MUST_IF] Ein Projekt per SSH auf eine nicht lokale Umgebung zugreift, muss die
+projektspezifische Dokumentation einen stabilen lokalen SSH-Alias und die
+nicht geheimen Merkmale der Zielidentität wie Umgebung, Host oder IP-Adresse
+und den vorgesehenen Benutzer enthalten. Projektspezifische Ziele gehören
+nicht in die globalen Agentenregeln.
+
+[SHOULD] Für produktive Umgebungen wird ein eigener, passphrasegeschützter
+Schlüssel je Projekt oder Vertrauensbereich verwendet. Private Schlüssel und
+Passphrasen bleiben im lokalen SSH-Verzeichnis beziehungsweise im
+Betriebssystem-Schlüsselbund und werden niemals im Repository gespeichert.
+
+[MUST_IF] Ein Agent einen lokalen SSH-Zugang einrichtet oder ändert, muss er
+bestehende SSH-Konfiguration erhalten, Dateirechte restriktiv setzen und den
+Alias auf den ausdrücklich belegten Host, Benutzer und Schlüssel begrenzen.
+Nur der öffentliche Schlüssel darf über einen autorisierten Weg auf dem
+Zielsystem hinterlegt werden.
+
+[MUST_NOT] Der Agent darf Host-Key-Prüfungen nicht deaktivieren, neue
+Host-Keys nicht blind akzeptieren und einen SSH-Alias nicht als Nachweis der
+tatsächlichen Zielidentität behandeln.
+
+[MUST_IF] Vor dem ersten Zugriff oder nach einer Host-Key-Änderung muss der
+erwartete Fingerprint über eine unabhängige, projektspezifisch belegte Quelle
+geprüft werden. Bei fehlender oder widersprüchlicher Identität stoppt der Agent
+vor dem Verbindungsaufbau beziehungsweise Schreibzugriff.
 
 ## Git und Deployment
 
