@@ -41,6 +41,43 @@ Architekturgrenzen.
 Beschreibe zentrale Komponenten, Datenobjekte, Schnittstellen, Persistenz,
 Rollen und schwer rückbaubare Technologieentscheidungen.
 
+## Projektadapter für Agenten-Harnesses
+
+[MUST_IF] Agenten im Projekt arbeiten, beschreibe im erforderlichen Umfang:
+
+- verwendete Harnesses oder Laufzeitumgebungen und ihren Einsatzzweck,
+- führende Kontext- und Regelquellen sowie die Identifikation ihres wirksamen
+  Stands,
+- erlaubte Werkzeuge, Berechtigungsgrenzen und Bestätigungsanforderungen,
+- Trennung von Lesezugriffen, lokalen Änderungen und extern wirksamen oder
+  irreversiblen Handlungen,
+- zulässigen dauerhaften Zustand, Memory-Quellen und erforderliche
+  Aktualitätsprüfungen,
+- Regeln für Delegation, Rollentrennung, Übergabe und Wiederaufnahme,
+- erforderliche Aktions-, Entscheidungs-, Prüf- und Fehlernachweise ohne
+  sensible Inhalte,
+- Positiv-, Negativ-, Fehlerfall- und Regressionstests für das Harness,
+- Identifikation, Aktualisierung und Kompatibilitätsprüfung von Regel- und
+  Harness-Konfigurationsständen,
+- Stop-Bedingungen und Verhalten bei fehlendem Kontext, Teilfehlern oder
+  ausgefallenen Schutzkontrollen sowie
+- verantwortliche Instanz und Vorgehen für Harness-, Regel- und
+  Konfigurationsänderungen.
+
+[MUST_IF] Coding-Agenten eingesetzt werden, beschreibe zusätzlich zulässige
+Repository- und Toolzugriffe, Arbeitsstandsprüfung, Checks und Grenzen für
+Commit, Push, Review und Merge.
+
+[MUST_IF] Agenten auf produktive Systeme, reale Nutzer, produktive Daten oder
+Secrets zugreifen, diese lesen, verarbeiten, übertragen, verändern oder
+anderweitig beeinflussen oder Deployments, Migrationen oder externe
+Kommunikation ausführen, beschreibe zusätzlich Zielidentität, Least Privilege,
+schreibfreien Vorlauf, Freigaben, Verifikation, Monitoring,
+Wiederherstellung und Rollback.
+
+[MUST_NOT] Offene Harness-Entscheidungen oder nicht vorhandene technische
+Kontrollen dürfen nicht als umgesetzt oder wirksam dokumentiert werden.
+
 ## Sicherheit und Datenschutz
 
 Beschreibe Secrets, Berechtigungen, sensible oder personenbezogene Daten,

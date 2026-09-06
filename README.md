@@ -17,6 +17,7 @@ Weitere Einstiegspunkte:
 - [Security Reviewer](https://bastivonnijodex.github.io/agents/roles/security-reviewer.md)
 - [SKILLS.md](https://bastivonnijodex.github.io/agents/skills/SKILLS.md)
 - [WORKFLOWS.md](https://bastivonnijodex.github.io/agents/workflows/WORKFLOWS.md)
+- [Agenten-Harness bewerten und projektbezogen ausgestalten](https://bastivonnijodex.github.io/agents/workflows/agent-harness.md)
 - [Autopilot mit gebündelter Freigabe](https://bastivonnijodex.github.io/agents/workflows/autopilot.md)
 - [Backlog Item erstellen und verfeinern](https://bastivonnijodex.github.io/agents/workflows/backlog-item.md)
 - [Produktkonzept erstellen und entscheiden](https://bastivonnijodex.github.io/agents/workflows/product-concept.md)
@@ -50,6 +51,7 @@ verpflichtend:
 | `docs/roles/security-reviewer.md` | Unabhängige adversariale Prüfung sicherheitsrelevanter Änderungen. |
 | `docs/skills/SKILLS.md` | Skill-Lookup. |
 | `docs/workflows/WORKFLOWS.md` | Workflow-Lookup. |
+| `docs/workflows/agent-harness.md` | Allgemeiner Standard zur Bewertung und projektspezifischen Ausgestaltung von Agenten-Harnesses. |
 | `docs/workflows/autopilot.md` | Gebündelte Umsetzungs- und Produktionsfreigaben mit klaren Stop-Bedingungen. |
 | `docs/workflows/backlog-item.md` | Produktübergreifender Standard für Backlog Items. |
 | `docs/workflows/product-concept.md` | Produktübergreifender Lebenszyklus für Produktkonzepte. |

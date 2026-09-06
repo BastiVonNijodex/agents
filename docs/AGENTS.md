@@ -60,6 +60,11 @@ muss der Agent den Workflow
 [Autopilot mit gebündelter Freigabe](https://bastivonnijodex.github.io/agents/workflows/autopilot.md)
 lesen und anwenden.
 
+[MUST_IF] Ein Agenten-Harness ausgewählt, eingeführt, konfiguriert, wesentlich
+geändert oder auf seine Eignung geprüft wird, muss der Agent den Workflow
+[Agenten-Harness bewerten und projektbezogen ausgestalten](https://bastivonnijodex.github.io/agents/workflows/agent-harness.md)
+lesen und anwenden.
+
 ## Dokumentierte Kommandos
 
 [MUST] Der Agent muss dokumentierte Kommandos vor der Ausführung gegen den aktuellen Kontext prüfen und Platzhalter durch konkrete Werte ersetzen.
@@ -125,6 +130,96 @@ erkennt, muss er sie getrennt als Empfehlung oder Backlog-Vorschlag benennen.
 Er darf sie nicht stillschweigend in den freigegebenen Scope aufnehmen.
 
 [MUST] Nach relevanten Code-, Schema-, API-, Deployment- oder Produktverhaltensänderungen aktualisiert der Agent die passende Dokumentation.
+
+## Agenten-Harness und Laufzeitkontext
+
+Ein Agenten-Harness ist die technische und organisatorische Laufzeitumgebung,
+die einem Agenten Kontext, Regeln, Werkzeuge, Berechtigungen, Zustand,
+Delegationsmöglichkeiten und Nachweise bereitstellt. Ein Modell oder Prompt
+allein gilt nicht als vollständiges Harness.
+
+[MUST] Ein Agent darf aus der bloßen Verfügbarkeit eines Werkzeugs, Zugriffs,
+gespeicherten Kontexts oder weiteren Agenten keine fachliche Freigabe und keine
+Erweiterung seines Task-Scopes ableiten.
+
+[MUST] Das wirksame Regel-, Projekt- und Auftragsset muss für den laufenden Task
+identifizierbar sein. Der Agent muss veralteten, unvollständigen oder
+widersprüchlichen Kontext erkennen und vor einer davon betroffenen Handlung
+gegen die führenden Quellen prüfen.
+
+[MUST] Ein Harness muss Lesezugriffe, lokale oder reversible Änderungen und
+extern wirksame oder irreversible Handlungen soweit technisch möglich
+unterscheidbar machen. Berechtigungen, Bestätigungen und technische
+Zugriffsmöglichkeiten ersetzen einander nicht.
+
+[MUST] Dauerhafter oder taskübergreifend wiederverwendeter Zustand muss nach
+Herkunft, Geltungsbereich und Aktualität einordenbar sein. Erinnerung darf
+weder aktuelle Quellen ersetzen noch frühere Freigaben auf neue Tasks,
+Repositorien, Empfänger oder Umgebungen übertragen.
+
+[MUST_NOT] Secrets, Zugangsdaten oder private Schlüssel dürfen nicht in
+agentengeführtem persistentem oder taskübergreifendem Memory gespeichert
+werden. Dafür vorgesehene Secret Stores gelten nicht als Agenten-Memory und
+unterliegen ihren projektspezifischen Zugriffsregeln.
+
+[MUST_IF] Personenbezogene Daten in persistentem oder taskübergreifendem
+Zustand verarbeitet werden, müssen Zweck, Datenminimierung, Zugriff,
+Aufbewahrung, Löschung und Korrektur projektspezifisch geregelt und geprüft
+werden.
+
+[MUST_IF] Arbeit an weitere Agenten, Prozesse oder Laufzeiten delegiert wird,
+müssen Ziel, Scope, relevante Quellen, erlaubte Handlungen, Stop-Bedingungen und
+erwarteter Ergebnisnachweis ausreichend übertragen werden. Delegation erweitert
+weder Berechtigungen noch Freigaben.
+
+[MUST] Ein Harness muss relevante Handlungen, Entscheidungen, Annahmen,
+Prüfergebnisse und Abbrüche in einem Umfang nachweisbar machen, der Risiko,
+externer Wirkung und Wiederaufnahmebedarf entspricht. Sensible Werte dürfen
+dabei nicht in Nachweise gelangen.
+
+[MUST_IF] Ein Harness oder seine Konfiguration fachliche Entscheidungen,
+Werkzeugzugriffe, dauerhaften Zustand, Delegation oder extern wirksame
+Handlungen beeinflusst, müssen angemessene Positiv-, Negativ- und
+Fehlerfallprüfungen definiert und bei wesentlichen Änderungen erneut
+ausgeführt werden.
+
+[MUST] Ein Harness muss bei fehlendem Kontext, widersprüchlicher Zielidentität,
+unzureichender Freigabe oder ausgefallenen Schutzkontrollen für die betroffene
+riskante Handlung sicher stoppen. Ein technischer Fehler oder Teilabschluss
+darf nicht als fachlicher Erfolg gemeldet werden.
+
+[MUST_IF] Coding-Agenten Code, Konfiguration, Schema, Abhängigkeiten oder
+Repository-Zustand verändern, gelten sie als risikoreiche Spezialisierung. Das
+Projekt muss dafür mindestens führende Quellen, zulässige Repository- und
+Toolzugriffe, Arbeitsstandsprüfung, erforderliche Checks sowie Grenzen für
+Commit, Push, Review und Merge bestimmen.
+
+[MUST_IF] Agenten auf produktive Systeme, reale Nutzer, produktive Daten oder
+Secrets zugreifen, diese lesen, verarbeiten, übertragen, verändern oder
+anderweitig beeinflussen oder Deployments, Migrationen oder externe
+Kommunikation ausführen, gelten sie als besonders risikoreiche Spezialisierung.
+Zielidentität, Least Privilege, schreibfreier Vorlauf, Stop-Bedingungen,
+Verifikation und Wiederherstellung müssen projektspezifisch belegt sein; die
+einschlägigen Security-, Datenschutz-, Autopilot- und Release-Regeln gelten
+zusätzlich.
+
+[MUST] Der für einen Task wirksame Stand wesentlicher Regeln und
+Harness-Konfigurationen muss anhand einer Version, eines unveränderlichen
+Referenzstands oder eines gleichwertigen Nachweises identifizierbar sein.
+
+[MUST_IF] Eine Harness- oder Regeländerung Freigabelogik, Berechtigungen,
+Werkzeuge, Memory, Delegation, Nachweise oder Stop-Bedingungen beeinflusst,
+müssen Auswirkung, Kompatibilität, erforderliche Migration und betroffene
+Prüfungen vor ihrer Übernahme bewertet werden.
+
+[MUST_IF] Ein Projekt Regeln oder Harness-Konfigurationen auf einem bestimmten
+Stand fixiert, muss es festlegen, wie sicherheitsrelevante Aktualisierungen
+erkannt, bewertet und kontrolliert übernommen werden.
+
+[MUST_NOT] Globale Harness-Regeln dürfen konkrete Agentenprodukte, Modelle,
+Provider, Dateinamen, CI-Systeme, Speichertechnologien oder
+Orchestrierungswerkzeuge vorschreiben, wenn diese nicht für einen aktuellen
+Task oder ein Projekt ausdrücklich festgelegt sind.
 
 ## Applikationsentwicklung
 
