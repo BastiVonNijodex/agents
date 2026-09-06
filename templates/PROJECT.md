@@ -17,6 +17,29 @@ bestätigten Scopes selbst treffen dürfen.
 
 Beschreibe relevante Versionen, Deployments, Umgebungen oder Release-Regeln.
 
+### Globaler Agenten-Regelstand
+
+Regelversion: `<regelversion>`
+
+Regel-Commit: `<regel-commit-sha>`
+
+Unveränderliche Regelquelle:
+`https://raw.githubusercontent.com/BastiVonNijodex/agents/<regel-commit-sha>/docs/AGENTS.md`
+
+Update-Modus: `<regel-update-modus>`
+
+[MUST] Ersetze die Platzhalter durch eine veröffentlichte SemVer-Version, den
+zugehörigen vollständigen 40-stelligen Commit-SHA und einen konkreten
+Update-Modus. Wenn bewusst ein unveröffentlichter Stand verwendet wird, muss
+die Regelversion als `unveröffentlicht` gekennzeichnet werden.
+
+[MUST] Der Update-Modus beschreibt mindestens Verantwortlichkeit,
+Prüfrhythmus oder Auslöser, Kompatibilitäts- und Migrationsprüfung, erforderliche
+Harness-Evals sowie den Umgang mit sicherheitsrelevanten Aktualisierungen.
+
+[MUST_NOT] Die veränderliche GitHub-Pages-URL oder ein Branchname darf nicht als
+alleiniger Nachweis des wirksamen Regelstands verwendet werden.
+
 ## Lokaler Projektpfad
 
 App-Name: `<appname>`

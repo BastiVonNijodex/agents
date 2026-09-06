@@ -12,6 +12,9 @@ Die zentrale Datei ist:
 
 Weitere Einstiegspunkte:
 
+- [Aktuelle Regelversion](https://bastivonnijodex.github.io/agents/VERSION.md)
+- [Versionierung und Migration](https://bastivonnijodex.github.io/agents/VERSIONING.md)
+- [Changelog](https://bastivonnijodex.github.io/agents/CHANGELOG.md)
 - [ROLES.md](https://bastivonnijodex.github.io/agents/roles/ROLES.md)
 - [Product Owner](https://bastivonnijodex.github.io/agents/roles/product-owner.md)
 - [Security Reviewer](https://bastivonnijodex.github.io/agents/roles/security-reviewer.md)
@@ -50,6 +53,9 @@ verpflichtend:
 | `AGENTS.md` | Lokaler Einstiegspunkt dieses Repositories. |
 | `PROJECT.md` | Projektbeschreibung und Pflege-Regeln für dieses Regel-Repository. |
 | `docs/AGENTS.md` | Veröffentlichte globale Agentenregeln. |
+| `docs/VERSION.md` | Deklarierte nächste beziehungsweise aktuelle Regelversion. |
+| `docs/VERSIONING.md` | SemVer-, Referenz-, Kompatibilitäts- und Migrationsmodell. |
+| `docs/CHANGELOG.md` | Release-Kandidaten, veröffentlichte Regelstände und Migrationshinweise. |
 | `docs/roles/ROLES.md` | Rollen-Lookup. |
 | `docs/roles/product-owner.md` | Produktübergreifende Product-Owner-Verantwortung. |
 | `docs/roles/security-reviewer.md` | Unabhängige adversariale Prüfung sicherheitsrelevanter Änderungen. |
@@ -78,6 +84,13 @@ veröffentlichten Dokumente, Regelmarker und zentrale Bestandteile der Vorlagen:
 python3 scripts/validate_repository.py
 python3 -m unittest discover -s tests -v
 git diff --check
+```
+
+Eine ausgefüllte Regelreferenz in einem konsumierenden Projekt kann zusätzlich
+geprüft werden:
+
+```sh
+python3 scripts/validate_repository.py --project-reference /pfad/zur/PROJECT.md
 ```
 
 Dies sind strukturelle Prüfungen. Die inhaltliche Bewertung von Regeländerungen

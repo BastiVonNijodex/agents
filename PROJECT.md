@@ -12,6 +12,15 @@ Die zentrale Einstiegsdatei ist:
 
 https://bastivonnijodex.github.io/agents/AGENTS.md
 
+Die deklarierte nächste Regelversion steht in `docs/VERSION.md`. Releases
+verwenden SemVer, einen annotierten Git-Tag `v<major>.<minor>.<patch>`, einen
+GitHub Release und den vollständigen Commit-SHA. Der Entwicklungsstand auf
+`main` gilt bis zum zugehörigen Release nicht als veröffentlichter
+SemVer-Regelstand und wird durch seinen Commit-SHA identifiziert.
+
+Die Versions-, Kompatibilitäts- und Migrationsregeln stehen in
+`docs/VERSIONING.md`; die Release-Historie steht in `docs/CHANGELOG.md`.
+
 ## Lokaler Projektpfad
 
 Der stabile App- beziehungsweise Repository-Name ist `agents`.
@@ -130,10 +139,10 @@ Nachweise, Stop-Bedingungen oder Publikationswege wesentlich geändert werden,
 müssen Harness-Auswirkung, Kompatibilität und relevante Regressionen erneut
 bewertet werden.
 
-[MUST] Bis das Versionierungs- und Migrationsmodell aus GitHub Issue #15
-umgesetzt ist, belegt jeder Task den verwendeten Regelstand durch einen
-Commit-SHA. Sicherheitsrelevante Änderungen werden als eigenes Issue und Pull
-Request geprüft und kontrolliert in konsumierende Projekte übernommen.
+[MUST] Jeder Task belegt den verwendeten Regelstand durch Commit-SHA und, wenn
+vorhanden, veröffentlichte SemVer-Version. Sicherheitsrelevante Änderungen
+werden als eigenes Issue und Pull Request geprüft, im Changelog hervorgehoben
+und kontrolliert in konsumierende Projekte übernommen.
 
 ## Checks
 
