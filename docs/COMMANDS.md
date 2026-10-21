@@ -22,7 +22,7 @@ Diese Hilfe ergänzt die verbindliche Regel in [AGENTS.md](AGENTS.md). Sie enth�
 
 Ein Alias ist nur auf einer lokalen Laufzeit verfügbar, deren persönliche SSH-Konfiguration ihn bereits enthält. Fehlt er, wird kein Ersatz konstruiert und keine SSH-Konfiguration verändert.
 
-### Kanonische Aliasnamen
+### Dokumentierte Aliasnamen
 
 | Projekt | Alias |
 | --- | --- |
@@ -32,6 +32,8 @@ Ein Alias ist nur auf einer lokalen Laufzeit verfügbar, deren persönliche SSH-
 | MeinPensum | `meinpensum-prod` |
 
 Für Tipolingo und andere Projekte ohne vollständig verifizierte Zielidentität existiert bewusst kein Alias.
+
+Die Tabelle bestätigt ausschließlich den Aliasnamen. Eine erfolgreiche SSH-Anmeldung, die Serveridentität und die Release-Berechtigung müssen bei jedem konkreten Einsatz separat geprüft werden.
 
 ### Sicherer Ablauf
 

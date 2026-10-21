@@ -32,7 +32,7 @@ curl -L "https://bastivonnijodex.github.io/agents/AGENTS.md"
 
 [MUST] Ein SSH-Alias ist ausschließlich eine Zielreferenz, keine Freigabe für Release, Deployment, Migration, Neustart, Datenzugriff oder sonstige Produktionsänderung. Es gelten zusätzlich die projektbezogenen Freigaben, Backup-, Preflight-, Rollback- und Verifikations-Gates.
 
-Aktuell verifizierte Aliasnamen:
+Dokumentierte kanonische Aliasnamen (nur lokale Aliasauflösung, keine Remote-Anmeldebestätigung):
 
 - `finja3-prod` für FINJA 3
 - `finja3-mcp-prod` für FINJA-MCP
