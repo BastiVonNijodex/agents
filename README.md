@@ -27,7 +27,7 @@ Weitere Einstiegspunkte:
 - [Produktkonzept erstellen und entscheiden](https://bastivonnijodex.github.io/agents/workflows/product-concept.md)
 - [new-application.md](https://bastivonnijodex.github.io/agents/workflows/new-application.md)
 - [release.md](https://bastivonnijodex.github.io/agents/workflows/release.md)
-- [COMMANDS.md](https://bastivonnijodex.github.io/agents/COMMANDS.md)
+- [SSH-Alias-Hilfe und dokumentierte Kommandos](https://bastivonnijodex.github.io/agents/COMMANDS.md)
 - [TECHNOLOGIES.md](https://bastivonnijodex.github.io/agents/TECHNOLOGIES.md)
 
 ## Verwendung in einem Repository
@@ -69,6 +69,7 @@ verpflichtend:
 | `docs/workflows/product-concept.md` | Produktübergreifender Lebenszyklus für Produktkonzepte. |
 | `docs/workflows/new-application.md` | Mindeststandard für neue Applikationen. |
 | `docs/workflows/release.md` | Globale Release-Disziplin. |
+| `docs/COMMANDS.md` | Sichere Kommandonutzung und SSH-Alias-Hilfe für freigegebene Produktionsarbeit. |
 | `evals/` | Maschinenlesbare Profile, Fälle und synthetische Referenzergebnisse. |
 | `scripts/evaluate_harness.py` | Deterministischer Harness-Eval-Runner. |
 | `templates/` | Kopiervorlagen für andere Repositories. |
