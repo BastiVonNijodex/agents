@@ -6,7 +6,17 @@ Release-Kandidaten. Änderungen folgen dem Modell aus
 
 ## Unreleased
 
-- Keine weiteren Änderungen vorgemerkt.
+- Kanonischer App-Basisordner neutral als `~/vibecoding/<appname>` statt mit
+  absolutem Benutzerpfad formuliert. Auf dem Rechner des Nutzers zeigt der Pfad
+  auf denselben Ordner; Validator, Test und Vorlage sind angepasst.
+- README um einen kurzen Einstieg für Außenstehende ergänzt (Deutsch und
+  Englisch).
+
+### Migration
+
+Keine Handlung nötig. Projekte, deren `PROJECT.md` noch den absoluten Pfad
+nennt, bleiben gültig und können beim nächsten Update auf `~/vibecoding/<appname>`
+umgestellt werden.
 
 ## 1.0.0 - 2026-09-06
 

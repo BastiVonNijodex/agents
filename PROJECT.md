@@ -27,7 +27,7 @@ Der stabile App- beziehungsweise Repository-Name ist `agents`.
 
 Der kanonische lokale Basis-Checkout liegt unter:
 
-`/Users/bastimeissner/vibecoding/agents`
+`~/vibecoding/agents`
 
 [MUST] Zusätzliche Worktrees oder bestehende Arbeitskopien an anderen Orten
 dürfen für isolierte Tasks verwendet werden, ersetzen den kanonischen

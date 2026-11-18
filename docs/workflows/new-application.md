@@ -38,7 +38,7 @@ angewendet werden.
 
 [MUST] Vor der Initialisierung bestimmt der Agent den stabilen App-Namen und
 den kanonischen Basisordner
-`/Users/bastimeissner/vibecoding/<appname>` nach den globalen Regeln. Er prüft
+`~/vibecoding/<appname>` nach den globalen Regeln. Er prüft
 vor dem Anlegen, ob der Zielpfad fehlt, leer ist oder bereits eindeutig zur
 App gehört.
 

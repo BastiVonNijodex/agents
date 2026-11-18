@@ -44,7 +44,7 @@ alleiniger Nachweis des wirksamen Regelstands verwendet werden.
 
 App-Name: `<appname>`
 
-Kanonischer Basisordner: `/Users/bastimeissner/vibecoding/<appname>`
+Kanonischer Basisordner: `~/vibecoding/<appname>`
 
 [MUST] Ersetze `<appname>` durch den kurzen, stabilen App-Bezeichner in
 Kleinbuchstaben und bei Bedarf mit Bindestrichen. Der Basisordner enthält den
