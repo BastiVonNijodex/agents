@@ -2,6 +2,33 @@
 
 Zentrale Agenten-Anweisungen für Repositories von BastiVonNijodex.
 
+## Was ist das?
+
+Ein versioniertes Regelwerk, nach dem meine KI- und Code-Agenten arbeiten. Es
+legt fest, was ein Agent darf, wann er einen Menschen fragen muss und wann er
+stoppt.
+
+## Wofür?
+
+Damit Agenten in allen meinen Projekten nach denselben Leitplanken arbeiten:
+Freigaben, Umgang mit Secrets, Memory, Delegation und Produktion. 19
+automatisierte Testfälle prüfen, ob die Leitplanken halten.
+
+## Wie wird es genutzt?
+
+Jedes Projekt verweist in seiner eigenen `AGENTS.md` auf dieses Regelwerk und
+ergänzt projektspezifische Regeln in einer `PROJECT.md`. Die lesbare Fassung
+liegt unter
+[bastivonnijodex.github.io/agents](https://bastivonnijodex.github.io/agents/AGENTS.md).
+
+## In English
+
+A versioned rulebook my AI and coding agents follow. It defines what an agent
+may do, when it must ask a human and when it stops. Every project references it
+and adds its own rules. 19 automated test cases check that the guardrails hold.
+
+## Aufbau
+
 Dieses Repository ist ein GitHub-Pages-Projekt. Die veröffentlichten Markdown-Dateien liegen unter `docs/` und werden direkt aus dem Branch `main` bereitgestellt.
 
 ## GitHub Pages
@@ -33,7 +60,7 @@ Weitere Einstiegspunkte:
 ## Verwendung in einem Repository
 
 Jedes App-Projekt besitzt einen kanonischen lokalen Basisordner unter
-`/Users/bastimeissner/vibecoding/<appname>`. Zusätzliche Worktrees dürfen
+`~/vibecoding/<appname>`. Zusätzliche Worktrees dürfen
 anderswo liegen, solange der Basis-Checkout erhalten bleibt.
 
 Lege im Ziel-Repository eine kurze lokale `AGENTS.md` an. Eine Vorlage liegt unter:
