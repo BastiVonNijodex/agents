@@ -22,18 +22,17 @@ Diese Hilfe ergänzt die verbindliche Regel in [AGENTS.md](AGENTS.md). Sie enth�
 
 Ein Alias ist nur auf einer lokalen Laufzeit verfügbar, deren persönliche SSH-Konfiguration ihn bereits enthält. Fehlt er, wird kein Ersatz konstruiert und keine SSH-Konfiguration verändert.
 
-### Dokumentierte Aliasnamen
+### Wo die Aliasnamen stehen
 
-| Projekt | Alias |
-| --- | --- |
-| FINJA 3 | `finja3-prod` |
-| FINJA-MCP | `finja3-mcp-prod` |
-| nijodexWebsite | `nijodex-website-prod` |
-| MeinPensum | `meinpensum-prod` |
+Der kanonische Alias eines Projekts steht in dessen eigener `PROJECT.md`. Er
+folgt grundsätzlich dem Schema `<appname>-prod`; eine abweichende bestehende
+Konvention gilt nur, wenn sie dort eindeutig belegt ist.
 
-Für Tipolingo und andere Projekte ohne vollständig verifizierte Zielidentität existiert bewusst kein Alias.
+Nennt die `PROJECT.md` eines Projekts keinen verifizierten Alias, existiert für
+dieses Projekt bewusst keiner. Der Agent nimmt dann keinen an, meldet den
+fehlenden Nachweis und stoppt vor dem Produktionszugriff.
 
-Die Tabelle bestätigt ausschließlich den Aliasnamen. Eine erfolgreiche SSH-Anmeldung, die Serveridentität und die Release-Berechtigung müssen bei jedem konkreten Einsatz separat geprüft werden.
+Der dokumentierte Alias bestätigt ausschließlich den Namen. Eine erfolgreiche SSH-Anmeldung, die Serveridentität und die Release-Berechtigung müssen bei jedem konkreten Einsatz separat geprüft werden.
 
 ### Sicherer Ablauf
 

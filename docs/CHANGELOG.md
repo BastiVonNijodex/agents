@@ -11,12 +11,20 @@ Release-Kandidaten. Änderungen folgen dem Modell aus
   auf denselben Ordner; Validator, Test und Vorlage sind angepasst.
 - README um einen kurzen Einstieg für Außenstehende ergänzt (Deutsch und
   Englisch).
+- Konkrete Liste der Produktions-SSH-Aliase aus `AGENTS.md` und
+  `docs/COMMANDS.md` entfernt. Der Alias steht jetzt ausschließlich in der
+  `PROJECT.md` des jeweiligen Projekts, passend zur bestehenden Regel, dass
+  projektspezifische Ziele nicht in die globalen Agentenregeln gehören.
 
 ### Migration
 
 Keine Handlung nötig. Projekte, deren `PROJECT.md` noch den absoluten Pfad
 nennt, bleiben gültig und können beim nächsten Update auf `~/vibecoding/<appname>`
 umgestellt werden.
+
+Projekte mit Produktions-SSH-Zugang müssen ihren Alias in der eigenen
+`PROJECT.md` dokumentieren. Für FINJA 3, FINJA-MCP, nijodexWebsite und
+MeinPensum ist das erfolgt.
 
 ## 1.0.0 - 2026-09-06
 
