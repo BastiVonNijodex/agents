@@ -70,7 +70,7 @@ class RepositoryValidatorTests(unittest.TestCase):
             errors = validate_templates(root)
 
             self.assertTrue(
-                any("/Users/bastimeissner/vibecoding/<appname>" in error for error in errors)
+                any("~/vibecoding/<appname>" in error for error in errors)
             )
 
     def test_synthetic_project_migrates_to_pinned_rule_reference(self) -> None:
