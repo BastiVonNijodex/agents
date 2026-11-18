@@ -32,11 +32,6 @@ curl -L "https://bastivonnijodex.github.io/agents/AGENTS.md"
 
 [MUST] Ein SSH-Alias ist ausschließlich eine Zielreferenz, keine Freigabe für Release, Deployment, Migration, Neustart, Datenzugriff oder sonstige Produktionsänderung. Es gelten zusätzlich die projektbezogenen Freigaben, Backup-, Preflight-, Rollback- und Verifikations-Gates.
 
-Dokumentierte kanonische Aliasnamen (nur lokale Aliasauflösung, keine Remote-Anmeldebestätigung):
+Der kanonische Alias eines Projekts steht in dessen eigener `PROJECT.md` (nur lokale Aliasauflösung, keine Remote-Anmeldebestätigung). Projektspezifische Ziele gehören nicht in diese globalen Regeln.
 
-- `finja3-prod` für FINJA 3
-- `finja3-mcp-prod` für FINJA-MCP
-- `nijodex-website-prod` für nijodexWebsite
-- `meinpensum-prod` für MeinPensum
-
-[MUST_NOT] Für Tipolingo und jedes weitere Repository ohne vollständig verifizierte produktive Zielidentität darf kein Alias angenommen oder genutzt werden. Der Agent meldet den fehlenden Nachweis und stoppt vor Produktionszugriff.
+[MUST_NOT] Für ein Repository ohne vollständig verifizierte produktive Zielidentität in seiner `PROJECT.md` darf kein Alias angenommen oder genutzt werden. Der Agent meldet den fehlenden Nachweis und stoppt vor Produktionszugriff.
