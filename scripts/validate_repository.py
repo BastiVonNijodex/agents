@@ -12,7 +12,7 @@ from urllib.parse import unquote, urlsplit
 
 PAGES_BASE = "https://bastivonnijodex.github.io/agents/"
 RAW_RULE_BASE = "https://raw.githubusercontent.com/BastiVonNijodex/agents/"
-CANONICAL_APP_PATH = "/Users/bastimeissner/vibecoding/<appname>"
+CANONICAL_APP_PATH = "~/vibecoding/<appname>"
 SEMVER_RE = re.compile(
     r"^(?:v)?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)"
     r"(?:-[0-9A-Za-z.-]+)?$"
