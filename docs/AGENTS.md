@@ -255,7 +255,8 @@ lesen und anwenden.
 
 [MUST] Jedes App-Projekt muss auf dem lokalen Rechner des Nutzers einen
 kanonischen Basisordner unter
-`/Users/bastimeissner/vibecoding/<appname>` besitzen. `<appname>` ist ein
+`~/vibecoding/<appname>` besitzen. `~` steht für das Home-Verzeichnis des
+Nutzers. `<appname>` ist ein
 kurzer, stabiler Bezeichner in Kleinbuchstaben und bei Bedarf mit Bindestrichen.
 
 [MUST] Der kanonische Basisordner enthält den eindeutig zugeordneten lokalen
@@ -270,7 +271,7 @@ Projekt- beziehungsweise Repository-Identität prüfen. Fehlt der Ordner, muss e
 im bestätigten Scope sicher angelegt oder aus der belegten Quelle ausgecheckt
 werden.
 
-[MUST_NOT] Ein bestehender Pfad unter `/Users/bastimeissner/vibecoding/` darf
+[MUST_NOT] Ein bestehender Pfad unter `~/vibecoding/` darf
 nicht ungeprüft überschrieben, umgewidmet oder gelöscht werden. Passt sein
 Inhalt nicht zur erwarteten App- oder Repository-Identität, muss der Agent vor
 einer Änderung stoppen.
